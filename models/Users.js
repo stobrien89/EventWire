@@ -25,7 +25,7 @@ const userSchema = new mongoose.Schema ({
         address: {
             street_address: {
                 type: String,
-                required: true;
+                required: true
             },
             city: {
                 type: String,
@@ -42,7 +42,7 @@ const userSchema = new mongoose.Schema ({
     },
     image: String,
     admin: Boolean,
-    cart: {},
+    itenerary: {},
     history: {}
 })
 
