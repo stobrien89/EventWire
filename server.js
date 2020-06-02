@@ -5,7 +5,6 @@ const parser = require('body-parser');
 const cors = require('cors');
 const passport = require('./config/passport.js')();
 
-
 //Environment
 const app = express();
 const mongoURI = process.env.MONGODB_URI || 'mongodb://localhost:27017/project3';
@@ -24,11 +23,9 @@ mongoose.connect(mongoURI, {useNewUrlParser: true}, () => {
     console.log("Mongo DB is connected", mongoURI);
 });
 
-
 //DB error/success messages
 mongoose.connection.on('error', err => console.log(err.message));
 mongoose.connection.on('disconnected', () => console.log('mongo disconnected'));
-
 
 Routers
 const userController = require('./controllers/Users');
