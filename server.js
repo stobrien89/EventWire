@@ -16,7 +16,7 @@ app.use(express.urlencoded({ extended: false}));
 app.use(express.json());
 app.use(express.static('public'));
 app.use(passport.initialize());
-app.use(cors())
+app.use(cors());
 app.use(parser.json())
 
 //Mongo Connection
@@ -30,9 +30,9 @@ mongoose.connection.on('error', err => console.log(err.message));
 mongoose.connection.on('disconnected', () => console.log('mongo disconnected'));
 
 
-//Routers
-// const *app-name*Controller = require('./controllers/*app-name*');
-// app.use('*app-name*', *app-name*Controller);
+Routers
+const userController = require('./controllers/Users');
+app.use('/users', userController);
 
 //Listener
 app.listen(port, console.log(`listening on ${port}`));
