@@ -27,7 +27,7 @@ mongoose.connect(mongoURI, {useNewUrlParser: true}, () => {
 mongoose.connection.on('error', err => console.log(err.message));
 mongoose.connection.on('disconnected', () => console.log('mongo disconnected'));
 
-Routers
+// Routers
 const userController = require('./controllers/Users');
 app.use('/users', userController);
 
