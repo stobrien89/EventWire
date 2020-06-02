@@ -1,33 +1,50 @@
-//WORK STILL NEEDED TO CONFIGURE AUTH IN USER ROUTE
-
 const mongoose = require('mongoose');
-const Schema = mongoose.Schema;
-const bcrypt = require('bcrypt');
+
+const statesArray = ["AL", "AK", "AZ", "AR", "CA", "CO", "CT", "DC", "DE", "FL", "GA", "HI", "ID", "IL", "IN", "IA", "KS", "KY", "LA", "ME", "MD", "MA", "MI", "MN", "MS", "MO", "MT", "NE", "NV", "NH", "NJ", "NM", "NY", "NC", "ND", "OH", "OK", "OR", "PA", "RI", "SC", "SD", "TN", "TX", "UT", "VT", "VA", "WA", "WV", "WI", "WY"];
 
 const userSchema = new mongoose.Schema ({
     login: {
-        email: String,
-        password: String,
+        email: {
+            type: String,
+            required: true
+        },
+        password: {
+            type: String,
+            required: true
+        }
     },
     contact: {
-        name: String,
-        address: String,
-        phone: Number,
+        first_name: {
+            type: String,
+            required: true
+        },
+        last_name: {
+            type: String,
+            required: true
+        },
+        address: {
+            street_address: {
+                type: String,
+                required: true;
+            },
+            city: {
+                type: String,
+                required: true
+            },
+            state: {
+                type: String,
+                uppercase: true,
+                required: true,
+                enum: statesArray
+            },
+        },
+        number: req.body.number
     },
     image: String,
     admin: Boolean,
     cart: {},
     history: {}
 })
-
-//Generates hash for user password
-userSchema.methods.generateHash = (password) => bcrypt.hashSync(password, bcrypt.genSaltSync(8));
-
-//returns boolean to indicate whether or not a user has provided correct info. 
-//NOTE: this was not working, so the login strategy was modified to perform the same function.  May need to modify again
-
-// userSchema.methods.validPassword = (password) => bcrypt.compareSync(password, this.password);
-
 
 const Users = mongoose.model('Users', userSchema);
 
