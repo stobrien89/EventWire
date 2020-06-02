@@ -3,15 +3,13 @@ const mongoose = require('mongoose');
 const statesArray = ["AL", "AK", "AZ", "AR", "CA", "CO", "CT", "DC", "DE", "FL", "GA", "HI", "ID", "IL", "IN", "IA", "KS", "KY", "LA", "ME", "MD", "MA", "MI", "MN", "MS", "MO", "MT", "NE", "NV", "NH", "NJ", "NM", "NY", "NC", "ND", "OH", "OK", "OR", "PA", "RI", "SC", "SD", "TN", "TX", "UT", "VT", "VA", "WA", "WV", "WI", "WY"];
 
 const userSchema = new mongoose.Schema ({
-    login: {
-        email: {
-            type: String,
-            required: true
-        },
-        password: {
-            type: String,
-            required: true
-        }
+    email: {
+        type: String,
+        required: true
+    },
+    password: {
+        type: String,
+        required: true
     },
     contact: {
         first_name: {
@@ -38,7 +36,7 @@ const userSchema = new mongoose.Schema ({
                 enum: statesArray
             },
         },
-        number: req.body.number
+        number: Number
     },
     image: String,
     admin: Boolean,
