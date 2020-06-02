@@ -14,9 +14,11 @@ router.post('/signup', (req, res) => {
             contact: {
                 first_name: req.body.first_name,
                 last_name: req.body.last_name,
-                street_address: req.body.street_address,
-                city: req.body.city,
-                state: req.body.state,
+                address: {
+                    street_address: req.body.street_address,
+                    city: req.body.city,
+                    state: req.body.state,
+                },
                 number: req.body.number
             },
             image: req.body.image
