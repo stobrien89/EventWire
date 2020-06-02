@@ -3,7 +3,7 @@ const Schema = mongoose.Schema;
 
 const intinerarySchema = new Schema ({
     name:String,
-    occasion: Array,
+    occasion: String,
     groupSize: Number,
     startDate: String,
     endDate: String,
