@@ -30,10 +30,13 @@ mongoose.connection.on('disconnected', () => console.log('mongo disconnected'));
 // Controllers
 const userController = require('./controllers/Users');
 const destinationController = require('./controllers/destinations.js');
+const itineraryController = require('./controllers/itinerary');
 
 // Routes
+=======
 app.use('/users', userController);
 app.use('/destinations', destinationController);
+app.use('/itinerary', itineraryController);
 
 //Listener
 app.listen(port, console.log(`listening on ${port}`));
