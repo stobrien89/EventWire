@@ -31,7 +31,7 @@ mongoose.connection.on('disconnected', () => console.log('mongo disconnected'));
 const userController = require('./controllers/users');
 app.use('/users', userController);
 
-const itineraryController = require('./controllers/itinerary.js');
+const itineraryController = require('./controllers/itinerary');
 app.use('/itinerary', itineraryController);
 
 //Listener
