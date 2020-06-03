@@ -15,7 +15,8 @@ router.get('/seed', (req, res)=>{
             events: ["E Arroyo", "Barton Springs", "Amy's Ice Cream","Rainey Street"],
             followers: ["Jeff", "Mike", "Susan"],
             url: "https://www.eventwire.com",
-            status: "Active"
+            status: "Active",
+            user: '5ed6fa6a19daa925f4d273b0'
         },
         {
             name:"Test Itinerary 2",
@@ -27,7 +28,8 @@ router.get('/seed', (req, res)=>{
             events: ["MGM Grand", "Tank Driving", "Golf"],
             followers: ["Jeff", "Mike", "Sam"],
             url: "https://www.eventwire.com",
-            status: "purchased"
+            status: "purchased",
+            user: '5ed6fa6a19daa925f4d273b0'
         }
 
     ], (err, data)=>{
