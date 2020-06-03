@@ -33,7 +33,6 @@ const destinationController = require('./controllers/destinations.js');
 const itineraryController = require('./controllers/itinerary');
 
 // Routes
-=======
 app.use('/users', userController);
 app.use('/destinations', destinationController);
 app.use('/itinerary', itineraryController);
