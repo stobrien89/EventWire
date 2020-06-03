@@ -11,7 +11,7 @@ router.get('/seed', (req, res)=>{
             groupSize: 10,
             startDate: "6-29-20",
             endDate: "7-10-20",
-            Destination: "Austin",
+            destination: "Austin",
             events: ["E Arroyo", "Barton Springs", "Amy's Ice Cream","Rainey Street"],
             followers: ["Jeff", "Mike", "Susan"],
             url: "https://www.eventwire.com",
@@ -24,7 +24,7 @@ router.get('/seed', (req, res)=>{
             groupSize: 7,
             startDate: "7-6-20",
             endDate: "7-10-20",
-            Destination: "Las Vegas",
+            destination: "Las Vegas",
             events: ["MGM Grand", "Tank Driving", "Golf"],
             followers: ["Jeff", "Mike", "Sam"],
             url: "https://www.eventwire.com",
@@ -41,6 +41,13 @@ router.get('/seed', (req, res)=>{
 router.get('/', (req, res)=>{
     Itinerary.find({}, (err, foundItineraries)=>{
         res.json(foundItineraries);
+    });
+});
+
+// Create Route
+router.post('/', (req, res)=>{
+    Itinerary.create(req.body, (err, createdItinerary)=>{
+        res.json(createdItinerary);
     });
 });
 

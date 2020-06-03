@@ -7,7 +7,7 @@ const itinerarySchema = new Schema ({
     groupSize: Number,
     startDate: String,
     endDate: String,
-    Destination: String,
+    destination: String,
     events: Array,
     followers: Array,
     url: String,

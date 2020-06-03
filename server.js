@@ -28,7 +28,7 @@ mongoose.connection.on('error', err => console.log(err.message));
 mongoose.connection.on('disconnected', () => console.log('mongo disconnected'));
 
 // Controllers
-const userController = require('./controllers/Users');
+const userController = require('./controllers/users');
 const destinationController = require('./controllers/destinations.js');
 const itineraryController = require('./controllers/itinerary');
 const eventController = require('./controllers/events.js');
