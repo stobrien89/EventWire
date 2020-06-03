@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 
 // Model
-const Event = require('../models/event.js');
+const Events = require('../models/Events.js');
 
 /*******************************
  * Presentational Routes - routes that show us something in the browser (ALL GET REQUESTS)
