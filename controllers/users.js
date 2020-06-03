@@ -73,4 +73,16 @@ router.post('/login', (req, res) => {
     }
 })
 
+router.put('/:id', (req, res) => {
+    Users.findByIdAndUpdate(req.params.id, req.body, (err, user) => {
+        res.json(user)
+    })
+})
+
+router.delete('/:id', (req, res) => {
+    Users.findByIdAndRemove(req.params.id, (err, user) => {
+        res.json(user);
+    })
+})
+
 module.exports = router;
