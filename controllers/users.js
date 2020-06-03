@@ -6,6 +6,45 @@ const passport = require('../config/passport');
 const config = require('../config/config');
 const Users = require('../models/Users');
 
+// Seed
+router.get('/seed', (req, res)=> {
+    Users.create([
+        {
+            email: 'test@test.com',
+            password: 'test',
+            contact: {
+                first_name: 'test',
+                last_name: 'test',
+                address: {
+                    street_address: '101 test st.',
+                    city: 'Testville',
+                    state: 'WA',
+                },
+                number: 1111111111
+            }
+        },
+        {
+            email: 'test1@test.com',
+            password: 'test',
+            contact: {
+                first_name: 'test1',
+                last_name: 'test1',
+                address: {
+                    street_address: '102 test st.',
+                    city: 'Testville',
+                    state: 'NC',
+                },
+                number: 9195088370
+            }
+        }
+
+    ], (err, users) => {
+        err ? console.log(err) : console.log('Seeded DB!');
+        res.redirect('/');
+    })
+});
+
+
 router.post('/signup', (req, res) => {
     if (req.body.email && req.body.password) {
         let newUser = {
