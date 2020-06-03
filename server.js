@@ -11,7 +11,7 @@ const mongoURI = process.env.MONGODB_URI || 'mongodb://localhost:27017/project3'
 const port = process.env.PORT || 3000;
 
 //Middleware
-app.use(express.urlencoded({ extended: false}));
+app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 app.use(express.static('public'));
 app.use(passport.initialize());
@@ -19,7 +19,7 @@ app.use(cors());
 app.use(parser.json())
 
 //Mongo Connection
-mongoose.connect(mongoURI, {useNewUrlParser: true}, () => {
+mongoose.connect(mongoURI, { useNewUrlParser: true }, () => {
     console.log("Mongo DB is connected", mongoURI);
 });
 
@@ -27,11 +27,15 @@ mongoose.connect(mongoURI, {useNewUrlParser: true}, () => {
 mongoose.connection.on('error', err => console.log(err.message));
 mongoose.connection.on('disconnected', () => console.log('mongo disconnected'));
 
-// Routers
-const userController = require('./controllers/users');
-app.use('/users', userController);
-
+// Controllers
+const userController = require('./controllers/Users');
+const destinationController = require('./controllers/destinations.js');
 const itineraryController = require('./controllers/itinerary');
+
+// Routes
+=======
+app.use('/users', userController);
+app.use('/destinations', destinationController);
 app.use('/itinerary', itineraryController);
 
 //Listener
