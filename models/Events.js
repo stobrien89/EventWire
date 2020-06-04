@@ -34,7 +34,9 @@ const eventSchema = new mongoose.Schema({
     phone: String,
     email: String
   },
-  destination: {
+  destination_name: String,
+  destination:
+  {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'Destination',
   }
