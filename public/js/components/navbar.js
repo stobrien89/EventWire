@@ -4,7 +4,7 @@ class NavBar extends React.Component {
             <div>
                 <nav class="navbar navbar-expand-lg navbar-light bg-light">
                     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-                        <div class="navbar-nav">
+                        <div class="navbar-nav mr-auto">
                             <a class="nav-item nav-link active" href="#">HOME</a>
                             <a class="nav-item nav-link active" href="#">DESTINATION</a>
                             <a class="nav-item nav-link active" href="#">EVENTS</a>
