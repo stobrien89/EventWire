@@ -18,7 +18,7 @@ app.use(passport.initialize());
 app.use(cors());
 app.use(parser.json())
 
-//Mongo Connection
+//Mongo Connection 
 mongoose.connect(mongoURI, { useNewUrlParser: true }, () => {
     console.log("Mongo DB is connected", mongoURI);
 });
@@ -28,10 +28,10 @@ mongoose.connection.on('error', err => console.log(err.message));
 mongoose.connection.on('disconnected', () => console.log('mongo disconnected'));
 
 // Controllers
-const userController = require('./controllers/Users');
-const destinationController = require('./controllers/destinations.js');
+const userController = require('./controllers/users');
+const destinationController = require('./controllers/destinations');
 const itineraryController = require('./controllers/itinerary');
-const eventController = require('./controllers/events.js');
+const eventController = require('./controllers/events');
 
 // Routes
 app.use('/users', userController);
