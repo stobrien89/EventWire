@@ -114,38 +114,36 @@ const seedData = [
 // INDEX 
 
 router.get('/', (req, res) => {
-  Events.find({}, (err, allEvents) => {
-    res.json(allEvents);
-  })
+  if (req.query.d) {
+    Events.find({ destination: req.query.d }, (err, filteredEvents) => {
+      res.json(filteredEvents);
+    })
+  } else {
+    Events.find({}, (err, allEvents) => {
+      res.json(allEvents);
+    })
+  }
 })
 // test: curl http://localhost:3000/event
 
-// SEED
-router.get('/seed', (req, res) => {
-  Events.create(seedData, async (err, data) => {
-    // console.log('created data array', data);
-
-    data.map((event) => {
-
-      Destinations.find({ name: event.destination_name }, (err, foundDestination) => {
-
-        // console.log('foundDestination', foundDestination.name, foundDestination._id);
-        return foundDestination;
-      }).then(
-        (foundDestination) => {
-          // console.log('event', event._id);
-          // console.log(foundDestination[0]._id);
-          Events.findByIdAndUpdate(event._id, { $set: { destination: foundDestination[0]._id } }, { new: true }, (err, updatedEvent) => {
-            // console.log(err);
-            // console.log('event', updatedEvent);
-
-          })
-        }
-      )
-    })
-
-  }).then(res.redirect('/events'));
-});
+// // SEED
+// router.get('/seed', (req, res) => {
+//   Events.create(seedData, (err, data) => {
+//     data.map((event) => {
+//       Destinations.find({ name: event.destination_name }, (err, foundDestination) => {
+//         return foundDestination;
+//       }).then((foundDestination) => {
+//         Events.findByIdAndUpdate(
+//           event._id,
+//           { $set: { destination: foundDestination[0]._id } },
+//           { new: true },
+//           (err, updatedEvent) => { }
+//         )
+//       })
+//     })
+//     res.redirect('/events');
+//   })
+// });
 
 // SHOW
 router.get('/:id', (req, res) => {
