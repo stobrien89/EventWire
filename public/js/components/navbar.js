@@ -1,5 +1,5 @@
 class NavBar extends React.Component {
-    render () {
+    render() {
         return (
             <div>
                 <nav class="navbar navbar-expand-lg navbar-light bg-light">
