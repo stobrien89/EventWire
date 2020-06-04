@@ -14,7 +14,7 @@ class LoginForm extends React.Component {
                 <input type='password' name='password' onChange={this.props.handleInput} />
                 <input type="checkbox" id="show-password"/><label htmlFor="show-password">Show password</label>
               </div>
-              <input value='Submit' type='submit' onClick={this.props.handleLogIn} />
+              <input value='Submit' type='submit' onClick={this.props.handleLogin} />
             </form>
           </div>
         )
