@@ -77,7 +77,8 @@ router.post('/signup', (req, res) => {
                                 }
                                 var token = jwt.encode(payload, config.jwtSecret)
                                 res.json({
-                                    token: token
+                                    token: token,
+                                    newUser: newUser
                                 })
                             } else {
                                 res.sendStatus(401)
@@ -100,8 +101,10 @@ router.post('/login', (req, res) => {
                     var payload = {
                         id: user.id //might need to add underscore
                     }
-                    var token = jwt.encode(payload, config.jwtSecret)
+                    currentUser = user;
+                    var token = jwt.encode(payload, config.jwtSecret);
                     res.json({
+                        currentUser: currentUser,
                         token: token
                     })
                 } else {
