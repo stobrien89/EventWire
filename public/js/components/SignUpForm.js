@@ -1,7 +1,62 @@
 
 
 class SignUpForm extends React.Component {
-    render () {
+  state = {
+    currentUser: {},
+        email: '',
+        password: '',
+        first_name: '',
+        last_name: '',
+        street_address: '',
+        city: '',
+        state: '',
+        number: 0,
+        image: '',
+        isLoggedIn: false
+  }  
+  
+  handleSignUp = event => {
+    event.preventDefault()
+      fetch('/users/signup', {
+        body: JSON.stringify({
+          email: this.state.email,
+          password: this.state.password,
+          first_name: this.state.first_name,
+          last_name: this.state.last_name,
+          street_address: this.state.street_address,
+          city: this.state.city,
+          state: this.state.state,
+          number: this.state.number,
+          image: this.state.image      
+        }),
+        method: "POST",
+        headers: {
+          'Accept': 'application/json, text/plain, */*',
+            'Content-Type': 'application/json'
+        }
+      }).then(response => response.json())
+          .then(response => {
+            console.log(response)  
+            localStorage.token = response.token
+              this.setState({
+                email: '',
+                password: '',
+                first_name: '',
+                last_name: '',
+                street_address: '',
+                city: '',
+                state: '',
+                number: 0,
+                image: '',
+                currentUser: response.newUser,
+                isLoggedIn: true
+              })
+          })
+          .catch(err => console.log(err))
+    this.props.handleCurrentUser();
+  }
+  
+  render () {
       return (
         <div>
           <h2>Sign Up</h2>
@@ -53,7 +108,7 @@ class SignUpForm extends React.Component {
               <input type='text' name='image' onChange={this.props.handleInput} />
             </div>
 
-            <input value='Submit' type='submit' onClick={this.props.handleSignUp} />
+            <input value='Submit' type='submit' onClick={this.handleSignUp} />
           </form>
         </div>
       )
