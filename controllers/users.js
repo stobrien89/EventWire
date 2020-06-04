@@ -5,12 +5,55 @@ const jwt = require('jwt-simple');
 const passport = require('../config/passport');
 const config = require('../config/config');
 const Users = require('../models/Users');
+const bcrypt = require('bcrypt')
+
+//function to encrypt user's password for DB storage
+const generateHash = (password) => bcrypt.hashSync(password, bcrypt.genSaltSync(8));
+
+// Seed
+router.get('/seed', (req, res)=> {
+    Users.create([
+        {
+            email: 'test@test.com',
+            password: generateHash('test'),
+            contact: {
+                first_name: 'test',
+                last_name: 'test',
+                address: {
+                    street_address: '101 test st.',
+                    city: 'Testville',
+                    state: 'WA',
+                },
+                number: 1111111111
+            }
+        },
+        {
+            email: 'test1@test.com',
+            password: generateHash('test'),
+            contact: {
+                first_name: 'test1',
+                last_name: 'test1',
+                address: {
+                    street_address: '102 test st.',
+                    city: 'Testville',
+                    state: 'NC',
+                },
+                number: 9195088370
+            }
+        }
+
+    ], (err, users) => {
+        err ? console.log(err) : console.log('Seeded DB!');
+        res.redirect('/');
+    })
+});
+
 
 router.post('/signup', (req, res) => {
     if (req.body.email && req.body.password) {
         let newUser = {
             email: req.body.email,
-            password: req.body.password,
+            password: generateHash(req.body.password),
             contact: {
                 first_name: req.body.first_name,
                 last_name: req.body.last_name,
@@ -34,7 +77,8 @@ router.post('/signup', (req, res) => {
                                 }
                                 var token = jwt.encode(payload, config.jwtSecret)
                                 res.json({
-                                    token: token
+                                    token: token,
+                                    newUser: newUser
                                 })
                             } else {
                                 res.sendStatus(401)
@@ -53,12 +97,14 @@ router.post('/login', (req, res) => {
     if (req.body.email && req.body.password) {
         Users.findOne({email: req.body.email}).then(user => {
             if (user) {
-                if (user.password === req.body.password) {
+                if (bcrypt.compareSync(req.body.password, user.password)) {
                     var payload = {
                         id: user.id //might need to add underscore
                     }
-                    var token = jwt.encode(payload, config.jwtSecret)
+                    currentUser = user;
+                    var token = jwt.encode(payload, config.jwtSecret);
                     res.json({
+                        currentUser: currentUser,
                         token: token
                     })
                 } else {
@@ -71,6 +117,18 @@ router.post('/login', (req, res) => {
     }   else {
             res.sendStatus(401)
     }
+})
+
+router.put('/:id', (req, res) => {
+    Users.findByIdAndUpdate(req.params.id, req.body, (err, user) => {
+        res.json(user)
+    })
+})
+
+router.delete('/:id', (req, res) => {
+    Users.findByIdAndRemove(req.params.id, (err, user) => {
+        res.json(user);
+    })
 })
 
 module.exports = router;
