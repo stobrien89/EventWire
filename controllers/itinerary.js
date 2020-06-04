@@ -44,12 +44,28 @@ router.get('/', (req, res)=>{
     });
 });
 
+// Show Route
+router.get('/:id', (req, res)=>{
+    Itinerary.findById(req.params.id, req.body, (err, data)=>{
+        res.json(data);
+    })
+})
+
 // Create Route
 router.post('/', (req, res)=>{
     Itinerary.create(req.body, (err, createdItinerary)=>{
         res.json(createdItinerary);
     });
 });
+
+// Put Route
+router.put('/:id', (req, res)=>{
+    Itinerary.findByIdAndUpdate(req.params.id, req.body, (err, data)=>{
+        res.json(data);
+    })
+})
+
+
 
 
 // Delete Route
