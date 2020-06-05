@@ -30,7 +30,7 @@ class App extends React.Component{
             <Route path="/events"  />
             <Route path="/itinerary"  />
             <Route path="/signup" render={props => <SignUpForm handleCurrentUser={this.handleCurrentUser}/>}/>
-            <Route path="/profile" component={UserProfile} />
+            <Route path="/profile" render={props => <UserProfile currentUser={this.state.currentUser} />} />
 
             <Footer />
         </div>
