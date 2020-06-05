@@ -23,13 +23,16 @@ class App extends React.Component{
     render() {
         return(
         <div>
-            <NavBar />
+            <NavBar/>
 
-            
+            <Route path="/login" render={props => <LoginForm handleCurrentUser={this.handleCurrentUser}/>} />
+            <Route path="/destinations"  />
+            <Route path="/events"  />
+            <Route path="/itinerary"  />
+            <Route path="/signup" render={props => <SignUpForm handleCurrentUser={this.handleCurrentUser}/>}/>
+            <Route path="/profile" component={UserProfile} />
 
             <Footer />
-            {/* <SignUpForm handleInput={this.handleInput} handleCurrentUser={this.handleCurrentUser}/> */}
-            {/* <LoginForm handleInput={this.handleInput} handleCurrentUser={this.handleCurrentUser}/> */}
         </div>
         )
     }
@@ -43,6 +46,5 @@ ReactDOM.render(
     <Route path="/events"  />
     <Route path="/itinerary" component={Itinerary} />
     <Route path="/signup"  />
-    {/* <Route component={App} /> */}
     </Router>,
-         document.querySelector('.root')); 
+    document.querySelector('.root'));

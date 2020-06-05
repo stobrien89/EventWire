@@ -2,7 +2,6 @@
 
 class SignUpForm extends React.Component {
   state = {
-    currentUser: {},
         email: '',
         password: '',
         first_name: '',
@@ -12,7 +11,6 @@ class SignUpForm extends React.Component {
         state: '',
         number: 0,
         image: '',
-        isLoggedIn: false
   }  
 
   handleInput = event => {
@@ -61,7 +59,7 @@ class SignUpForm extends React.Component {
   
   render () {
       return (
-        <div>
+        <div className="container">
           <h2>Sign Up</h2>
   
           <form>
