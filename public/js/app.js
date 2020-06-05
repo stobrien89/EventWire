@@ -7,11 +7,9 @@ const Redirect = window.ReactRouterDOM.Redirect;
 const browserHistory = window.ReactRouterDOM.browserHistory;
 
 class App extends React.Component{
-<<<<<<< HEAD
-=======
     state = {
         currentUser: {}
-        
+
     }
       
     handleCurrentUser = (user) => {
@@ -21,7 +19,6 @@ class App extends React.Component{
         })
     }
     
->>>>>>> 807927a8632324a19415135bb4ca28c69417398e
 
     render() {
         return(
