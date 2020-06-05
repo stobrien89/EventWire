@@ -41,7 +41,7 @@ ReactDOM.render(
     <Route path="/login" component={LoginForm} />
     <Route path="/destinations"  />
     <Route path="/events"  />
-    <Route path="/itinerary"  />
+    <Route path="/itinerary" component={Itinerary} />
     <Route path="/signup"  />
     {/* <Route component={App} /> */}
     </Router>,
