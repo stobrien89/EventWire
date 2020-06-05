@@ -9,7 +9,7 @@ const browserHistory = window.ReactRouterDOM.browserHistory;
 class App extends React.Component{
     state = {
         currentUser: {}
-        
+
     }
       
     handleCurrentUser = (user) => {
