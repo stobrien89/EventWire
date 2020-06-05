@@ -2,13 +2,15 @@ class App extends React.Component{
     
     render() {
         return(
-        
-        <div className="container">
+        <div>
             <NavBar />
+
+            
+
+            <Footer />
         </div>
-        // 
         )
     }
 }
 
-ReactDOM.render(<App />, document.querySelector('.container')); 
+ReactDOM.render(<App />, document.querySelector('.root')); 
