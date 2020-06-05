@@ -14,15 +14,17 @@ class App extends React.Component{
 
     render() {
         return(
-        
-        <div className="container">
+        <div>
             <NavBar />
+
+            
+
+            <Footer />
             {/* <SignUpForm handleInput={this.handleInput} handleCurrentUser={this.handleCurrentUser}/> */}
             {/* <LoginForm handleInput={this.handleInput} handleCurrentUser={this.handleCurrentUser}/> */}
         </div>
-        // 
         )
     }
 }
 
-ReactDOM.render(<App />, document.querySelector('.container')); 
+ReactDOM.render(<App />, document.querySelector('.root')); 
