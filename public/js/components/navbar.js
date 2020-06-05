@@ -1,5 +1,5 @@
 class NavBar extends React.Component {
-    render () {
+    render() {
         return (
             <header class="container-fluid">
                 <nav class="navbar navbar-expand-lg navbar-light navbar-custom container">
