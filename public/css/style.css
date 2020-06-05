@@ -1,30 +1,83 @@
-header {
-    /* background-color: #421B43;
-    background-image: none;
-    background-repeat: no-repeat; */
-    background: linear-gradient(180deg, #421B43 0%, 
-        rgba(66, 27, 67, 0) 83.85%), 
-        linear-gradient(180deg, #FFFFFF 0%, 
-        rgba(255, 255, 255, 0) 100%), #FFFFFF;
+:root {
+  --primary-color: #421b43;
 }
 
+header {
+  position: fixed;
+  top: 0;
+  z-index: 10;
+  /* background-color: #421B43;
+    background-image: none;
+    background-repeat: no-repeat; */
+  background: linear-gradient(180deg, #421b43 0%, rgba(66, 27, 67, 0) 83.85%),
+    linear-gradient(180deg, #ffffff 0%, rgba(255, 255, 255, 0) 100%), #ffffff;
+}
+
+/* LIST COMPONENT STYLES */
+
+.page_title {
+  margin: 15px 0;
+}
+
+.container-height {
+  margin: 130px 0;
+}
+
+.card-height {
+  height: 26rem;
+  border: 1px solid darkgray;
+}
+
+.card-img-height {
+  height: 225px;
+  width: 100%;
+}
+
+.card-text-overflow {
+  /* border: 2px solid red; */
+  overflow: auto;
+}
+
+.card-text-height-event {
+  height: 3rem;
+}
+
+.card-text-height-destination {
+  height: 17rem;
+}
+
+.list-item {
+  cursor: pointer;
+  width: 18rem;
+}
+
+.list-item:hover {
+  background-color: var(--primary-color);
+  color: whitesmoke;
+}
+/* END LIST COMPONENT STYLES */
+
 footer {
+  /* 
     position: absolute;
-    bottom: 0;
-    /* width: 1080px; */
-    /* height: 220px; */
-    padding: 20px 0 0;
-    line-height: 1rem;
-    background: linear-gradient(180deg, #FFFFFF 0%, 
-        rgba(255, 255, 255, 0) 100%), 
-        linear-gradient(180deg, #FFFFFF 0%, 
-        rgba(255, 255, 255, 0) 100%), #421B43;
+    bottom: 0; 
+  */
+  position: fixed;
+  bottom: 0;
+  z-index: 10;
+
+  /* width: 1080px; */
+  /* height: 220px; */
+  padding: 20px 0 0;
+  line-height: 1rem;
+  background: linear-gradient(180deg, #ffffff 0%, rgba(255, 255, 255, 0) 100%),
+    linear-gradient(180deg, #ffffff 0%, rgba(255, 255, 255, 0) 100%), #421b43;
 }
 
 footer a {
-    padding: 0 1rem;
+  padding: 0 1rem;
 }
 
 footer .row {
-        padding-bottom: 1rem;
+  padding-bottom: 1rem;
 }

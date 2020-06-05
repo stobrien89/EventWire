@@ -4,12 +4,10 @@ const Link = window.ReactRouterDOM.Link;
 const Prompt = window.ReactRouterDOM.Prompt;
 const Switch = window.ReactRouterDOM.Switch;
 const Redirect = window.ReactRouterDOM.Redirect;
-const browserHistory = window.ReactRouterDOM.browserHistory;
 
 class App extends React.Component {
   state = {
     currentUser: {}
-
   }
 
   handleCurrentUser = (user) => {
@@ -19,13 +17,11 @@ class App extends React.Component {
     })
   }
 
-
   render() {
+
     return (
       <div>
         <NavBar />
-
-
 
         <Footer />
         {/* <SignUpForm handleInput={this.handleInput} handleCurrentUser={this.handleCurrentUser}/> */}
@@ -39,10 +35,9 @@ ReactDOM.render(
   <Router>
     <Route path="/" component={App} />
     <Route path="/login" component={LoginForm} />
-    <Route path="/destinations" />
-    <Route path="/events" />
+    <Route path="/destination" component={List} />
+    <Route path="/event" component={List} />
     <Route path="/itinerary" />
     <Route path="/signup" />
-    {/* <Route component={App} /> */}
   </Router>,
   document.querySelector('.root')); 
