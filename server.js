@@ -4,6 +4,7 @@ const mongoose = require('mongoose');
 const parser = require('body-parser');
 const cors = require('cors');
 const passport = require('./config/passport.js')();
+const path = require('path');
 
 //Environment
 const app = express();
@@ -38,6 +39,9 @@ app.use('/users', userController);
 app.use('/destinations', destinationController);
 app.use('/itinerary', itineraryController);
 app.use('/events', eventController);
+app.get('*', (req, res)=>{
+	res.sendFile(path.join(`${__dirname}/public/index.html`))
+})
 
 //Listener
 app.listen(port, console.log(`listening on ${port}`));

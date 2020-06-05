@@ -1,21 +1,21 @@
 class Footer extends React.Component {
     render () {
         return (
-            <footer class="container-fluid">
-                <div class="container">
-                    <div class="row text-center">
-                        <div class="col-md-12">
-                            <a class="nav-item" href="#">ABOUT</a>
-                            <a class="nav-item" href="#">TERMS & CONDITIONS</a>
-                            <a class="nav-item" href="#">CUSTOMER SUPPORT</a>
-                            <a class="nav-item" href="#"><img src=""/>FACEBOOK</a>
-                            <a class="nav-item" href="#"><img src=""/>INSTAGRAM</a>
-                            <a class="nav-item" href="#"><img src=""/>TWITTER</a>
+            <footer className="container-fluid">
+                <div className="container">
+                    <div className="row text-center">
+                        <div className="col-md-12">
+                            <a className="nav-item" href="#">ABOUT</a>
+                            <a className="nav-item" href="#">TERMS & CONDITIONS</a>
+                            <a className="nav-item" href="#">CUSTOMER SUPPORT</a>
+                            <a className="nav-item" href="#"><i class="fab fa-facebook-square"></i></a>
+                            <a className="nav-item" href="#"><i class="fab fa-instagram"></i></a>
+                            <a className="nav-item" href="#"><i class="fab fa-twitter-square"></i></a>
                         </div>
                     </div>
-                    <div class="row text-center">
-                        <div class="col-md-12"> 
-                            <div class="copyright">
+                    <div className="row text-center">
+                        <div className="col-md-12"> 
+                            <div className="copyright">
                                 Copyright © 2020 EventWire
                             </div>    
                         </div>

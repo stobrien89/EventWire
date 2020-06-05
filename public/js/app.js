@@ -1,3 +1,11 @@
+const Router = window.ReactRouterDOM.BrowserRouter;
+const Route =  window.ReactRouterDOM.Route;
+const Link =  window.ReactRouterDOM.Link;
+const Prompt =  window.ReactRouterDOM.Prompt;
+const Switch = window.ReactRouterDOM.Switch;
+const Redirect = window.ReactRouterDOM.Redirect;
+const browserHistory = window.ReactRouterDOM.browserHistory;
+
 class App extends React.Component{
     state = {
         currentUser: {}
@@ -27,4 +35,14 @@ class App extends React.Component{
     }
 }
 
-ReactDOM.render(<App />, document.querySelector('.root')); 
+ReactDOM.render(
+   <Router>
+    <Route path="/" component={App} />
+    <Route path="/login" component={LoginForm} />
+    <Route path="/destinations"  />
+    <Route path="/events"  />
+    <Route path="/itinerary"  />
+    <Route path="/signup"  />
+    {/* <Route component={App} /> */}
+    </Router>,
+         document.querySelector('.root')); 
