@@ -1,103 +1,48 @@
+const Router = window.ReactRouterDOM.BrowserRouter;
+const Route = window.ReactRouterDOM.Route;
+const Link = window.ReactRouterDOM.Link;
+const Prompt = window.ReactRouterDOM.Prompt;
+const Switch = window.ReactRouterDOM.Switch;
+const Redirect = window.ReactRouterDOM.Redirect;
+const browserHistory = window.ReactRouterDOM.browserHistory;
+
 class App extends React.Component {
   state = {
-    currentUser: {},
-    email: '',
-    password: '',
-    first_name: '',
-    last_name: '',
-    street_address: '',
-    city: '',
-    state: '',
-    number: 0,
-    image: '',
-    isLoggedIn: false,
+    currentUser: {}
+
   }
 
-  handleInput = event => {
+  handleCurrentUser = (user) => {
+    console.log(user)
     this.setState({
-      [event.target.name]: event.target.value
+      currentUser: user
     })
   }
-
-  handleSignUp = event => {
-    event.preventDefault()
-    fetch('/users/signup', {
-      body: JSON.stringify({
-        email: this.state.email,
-        password: this.state.password,
-        first_name: this.state.first_name,
-        last_name: this.state.last_name,
-        street_address: this.state.street_address,
-        city: this.state.city,
-        state: this.state.state,
-        number: this.state.number,
-        image: this.state.image
-      }),
-      method: "POST",
-      headers: {
-        'Accept': 'application/json, text/plain, */*',
-        'Content-Type': 'application/json'
-      }
-    }).then(response => response.json())
-      .then(response => {
-        console.log(response)
-        localStorage.token = response.token
-        this.setState({
-          email: '',
-          password: '',
-          first_name: '',
-          last_name: '',
-          street_address: '',
-          city: '',
-          state: '',
-          number: 0,
-          image: '',
-          currentUser: response.newUser,
-          isLoggedIn: true
-        })
-      })
-      .catch(err => console.log(err))
-  }
-
-  handleLogin = event => {
-    event.preventDefault();
-    fetch('/users/login', {
-      body: JSON.stringify({
-        email: this.state.email,
-        password: this.state.password
-      }),
-      method: "POST",
-      headers: {
-        'Accept': 'application/json, text/plain, */*',
-        'Content-Type': 'application/json'
-      }
-    }).then(response => response.json()).then(response => {
-      console.log(response)
-      localStorage.token = response.token
-      this.setState({
-        currentUser: response.currentUser,
-        isLoggedIn: true,
-        email: '',
-        password: ''
-      })
-    })
-      .catch(err => console.log(err))
-  }
-
 
 
   render() {
     return (
-
-      <div >
+      <div>
         <NavBar />
-        {/* <SignUpForm handleInput={this.handleInput} handleSignUp={this.handleSignUp}/> */}
-        {/* <LoginForm handleInput={this.handleInput} handleLogin={this.handleLogin}/> */}
-        <List />
+
+
+
+        <Footer />
+        {/* <SignUpForm handleInput={this.handleInput} handleCurrentUser={this.handleCurrentUser}/> */}
+        {/* <LoginForm handleInput={this.handleInput} handleCurrentUser={this.handleCurrentUser}/> */}
       </div>
-      // 
     )
   }
 }
 
-ReactDOM.render(<App />, document.querySelector('.root')); 
+ReactDOM.render(
+  <Router>
+    <Route path="/" component={App} />
+    <Route path="/login" component={LoginForm} />
+    <Route path="/destinations" />
+    <Route path="/events" />
+    <Route path="/itinerary" />
+    <Route path="/signup" />
+    {/* <Route component={App} /> */}
+  </Router>,
+  document.querySelector('.root')); 

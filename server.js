@@ -4,6 +4,7 @@ const mongoose = require('mongoose');
 const parser = require('body-parser');
 const cors = require('cors');
 const passport = require('./config/passport.js')();
+const path = require('path');
 
 //Environment
 const app = express();
@@ -13,10 +14,10 @@ const port = process.env.PORT || 3000;
 //Middleware
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
-app.use(express.static('public'));
 app.use(passport.initialize());
 app.use(cors());
 app.use(parser.json())
+app.use(express.static('public'));
 
 //Mongo Connection 
 mongoose.connect(mongoURI, { useNewUrlParser: true }, () => {
@@ -38,6 +39,9 @@ app.use('/users', userController);
 app.use('/destinations', destinationController);
 app.use('/itinerary', itineraryController);
 app.use('/events', eventController);
+app.get('*', (req, res)=>{
+	res.sendFile(path.join(`${__dirname}/public/index.html`))
+})
 
 //Listener
 app.listen(port, console.log(`listening on ${port}`));
