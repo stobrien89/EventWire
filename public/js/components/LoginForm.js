@@ -3,9 +3,14 @@ class LoginForm extends React.Component {
     state = {
         email: '',
         password: '',
-        currentUser: {}
     }
     
+    handleInput = event => {
+        this.setState({
+          [event.target.name]: event.target.value
+        })
+      }
+
     handleLogin = event => {
         event.preventDefault();
         fetch('/users/login', {
@@ -19,17 +24,14 @@ class LoginForm extends React.Component {
               'Content-Type': 'application/json'
           }
         }).then(response => response.json()).then(response => {
-          console.log(response)
-          localStorage.token = response.token
+          localStorage.token = response.token;
+          this.props.handleCurrentUser(response.currentUser);
           this.setState({
-            currentUser: response.currentUser,
-            isLoggedIn: true,
             email: '',
             password: ''
           })
       })
       .catch(err => console.log(err))
-      this.props.handeCurrentUser();
     }
 
     render () {
@@ -40,11 +42,11 @@ class LoginForm extends React.Component {
             <form>
               <div>
                 <label htmlFor='email'>Email</label>
-                <input type='text' name='email' onChange={this.props.handleInput} />
+                <input type='text' name='email' onChange={this.handleInput} />
               </div>
               <div>
                 <label htmlFor='password'>Password</label>
-                <input type='password' name='password' onChange={this.props.handleInput} />
+                <input type='password' name='password' onChange={this.handleInput} />
                 <input type="checkbox" id="show-password"/><label htmlFor="show-password">Show password</label>
               </div>
               <input value='Submit' type='submit' onClick={this.handleLogin} />
