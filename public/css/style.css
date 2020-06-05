@@ -1,7 +1,30 @@
-body {
-    background-color: blueviolet;
+header {
+    /* background-color: #421B43;
+    background-image: none;
+    background-repeat: no-repeat; */
+    background: linear-gradient(180deg, #421B43 0%, 
+        rgba(66, 27, 67, 0) 83.85%), 
+        linear-gradient(180deg, #FFFFFF 0%, 
+        rgba(255, 255, 255, 0) 100%), #FFFFFF;
 }
 
-h1 {
-    color: green;
+footer {
+    position: absolute;
+    bottom: 0;
+    /* width: 1080px; */
+    /* height: 220px; */
+    padding: 20px 0 0;
+    line-height: 1rem;
+    background: linear-gradient(180deg, #FFFFFF 0%, 
+        rgba(255, 255, 255, 0) 100%), 
+        linear-gradient(180deg, #FFFFFF 0%, 
+        rgba(255, 255, 255, 0) 100%), #421B43;
+}
+
+footer a {
+    padding: 0 1rem;
+}
+
+footer .row {
+        padding-bottom: 1rem;
 }
