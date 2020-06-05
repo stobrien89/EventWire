@@ -18,14 +18,18 @@ class App extends React.Component {
   }
 
   render() {
-
     return (
       <div>
         <NavBar />
 
+        <Route path="/login" render={props => <LoginForm handleCurrentUser={this.handleCurrentUser} />} />
+        <Route path="/destination" component={List} />
+        <Route path="/event" component={List} />
+        <Route path="/itinerary" />
+        <Route path="/signup" render={props => <SignUpForm handleCurrentUser={this.handleCurrentUser} />} />
+        <Route path="/profile" component={UserProfile} />
+
         <Footer />
-        {/* <SignUpForm handleInput={this.handleInput} handleCurrentUser={this.handleCurrentUser}/> */}
-        {/* <LoginForm handleInput={this.handleInput} handleCurrentUser={this.handleCurrentUser}/> */}
       </div>
     )
   }
@@ -34,10 +38,5 @@ class App extends React.Component {
 ReactDOM.render(
   <Router>
     <Route path="/" component={App} />
-    <Route path="/login" component={LoginForm} />
-    <Route path="/destination" component={List} />
-    <Route path="/event" component={List} />
-    <Route path="/itinerary" />
-    <Route path="/signup" />
   </Router>,
   document.querySelector('.root')); 

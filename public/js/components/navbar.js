@@ -24,7 +24,10 @@ class NavBar extends React.Component {
                                 <Link className="nav-link" to="/itinerary">ITINERARY</Link>
                             </li>
                             <li className="nav-item">
-                                <Link className="nav-link" to="/signup">SIGN UP</Link>
+                                <Link className="nav-link" to={{
+                                    pathname: '/signup',
+                                    state: {handleCurrentUser: 'hi'}
+                                }}>SIGN UP</Link>
                             </li>
                         </ul>
                     </div>
