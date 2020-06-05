@@ -6,8 +6,8 @@ class NavBar extends React.Component {
                     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                         <div class="navbar-nav mr-auto">
                             <a class="nav-item nav-link active" href="#">HOME</a>
-                            <a class="nav-item nav-link active" href="#">DESTINATION</a>
-                            <a class="nav-item nav-link active" href="#">EVENTS</a>
+                            <a class="nav-item nav-link active" href="/destinations">DESTINATION</a>
+                            <a class="nav-item nav-link active" href="/events">EVENTS</a>
                             <a class="nav-item nav-link active" href="#">LOGIN</a>
                             <a class="nav-item nav-link active" href="#">LOGIN</a>
                         </div>
