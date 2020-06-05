@@ -59,7 +59,7 @@ class SignUpForm extends React.Component {
   
   render () {
       return (
-        <div>
+        <div className="container">
           <h2>Sign Up</h2>
   
           <form>
