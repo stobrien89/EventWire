@@ -38,15 +38,18 @@ class App extends React.Component {
     return (
       <div>
         <NavBar />
+        <Feature />
 
         <Route path="/login" render={props => <LoginForm handleCurrentUser={this.handleCurrentUser} />} />
         <Route path="/destination" component={List} />
         <Route path="/event" component={List} />
         <Route path="/itinerary" render={props => <Itinerary currentUser={this.state.currentUser} setItinerary={this.setItinerary}/>} />
-        <Route path="/itinerary_events" component={ItineraryEvents} />
+        {/* <Route path="/itinerary_events" component={ItineraryEvents} /> */}
         <Route path="/itinerary_view" component={ItineraryView} />
         <Route path="/signup" render={props => <SignUpForm handleCurrentUser={this.handleCurrentUser} />} />
         <Route path="/profile" component={UserProfile} />
+        <Route path="/editprofile" render={props => <UserEditForm handleCurrentUser={this.handleCurrentUser} currentUser={this.state.currentUser}/>} />
+
         <Route path="/event_details" component={Event} />
         <Route path="/destination_details" />
         <Footer />

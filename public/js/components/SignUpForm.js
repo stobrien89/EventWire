@@ -97,7 +97,10 @@ class SignUpForm extends React.Component {
                 <div className="row justify-content-center">
                     <div className="col-md-8">
                         <div className="card">
-                            <div className="card-header text-center">Register</div>
+                            <div className="card-header text-center">
+                                <img className="img-fluid" id="heading-pin" src="/img/ew_pin.png"></img>
+                                <h1>Register</h1>
+                            </div>
                             <div className="card-body">
                                 {this.state.matchError && <p>{this.state.matchError}</p>}
                                 {this.state.error && <p>{this.state.error}</p>}
@@ -107,7 +110,7 @@ class SignUpForm extends React.Component {
                                         <label htmlFor="email" className="cols-sm-2 control-label">Email</label>
                                         <div className="cols-sm-10">
                                             <div className="input-group">
-                                                <span className="input-group-addon"><i className="fa fa-user fa" aria-hidden="true"></i></span>
+                                                <span className="input-group-addon"><i className="fa fa-envelope fa" aria-hidden="true"></i>&nbsp;&nbsp;</span>
                                                 <input type="text" className="form-control" value={this.state.email} name="email" placeholder="Enter your Email" onChange={this.handleInput} required/>
                                             </div>
                                         </div>
@@ -116,7 +119,7 @@ class SignUpForm extends React.Component {
                                         <label htmlFor="password" className="cols-sm-2 control-label">Password</label>
                                         <div className="cols-sm-10">
                                             <div className="input-group">
-                                                <span className="input-group-addon"><i className="fa fa-envelope fa" aria-hidden="true"></i></span>
+                                                <span className="input-group-addon"><i className="fa fa-lock fa" aria-hidden="true"></i>&nbsp;&nbsp;</span>
                                                 <input type="password" className="form-control" value={this.state.password} name="password" placeholder="Enter your Password" onChange={this.handleInput} required/>
                                             </div>
                                         </div>
@@ -125,7 +128,7 @@ class SignUpForm extends React.Component {
                                         <label htmlFor="username" class="cols-sm-2 control-label">Confirm Password</label>
                                         <div class="cols-sm-10">
                                             <div class="input-group">
-                                                <span class="input-group-addon"><i class="fa fa-users fa" aria-hidden="true"></i></span>
+                                                <span class="input-group-addon"><i class="fa fa-lock fa" aria-hidden="true"></i>&nbsp;&nbsp;</span>
                                                 <input type="password" class="form-control" value={this.state.confirm} name="confirm"  placeholder="Re-enter your Password" onChange={this.handleInput} required/>
                                             </div>
                                         </div>
@@ -134,7 +137,7 @@ class SignUpForm extends React.Component {
                                         <label htmlFor="first_name" className="cols-sm-2 control-label">First Name</label>
                                         <div className="cols-sm-10">
                                             <div className="input-group">
-                                                <span className="input-group-addon"><i className="fa fa-lock fa-lg" aria-hidden="true"></i></span>
+                                                <span className="input-group-addon"><i className="fa fa-user fa-lg" aria-hidden="true"></i>&nbsp;&nbsp;</span>
                                                 <input type="text" className="form-control" value={this.state.first_name} name="first_name" placeholder="Enter your first name" onChange={this.handleInput} required/>
                                             </div>
                                         </div>
@@ -143,16 +146,16 @@ class SignUpForm extends React.Component {
                                         <label htmlFor="last_name" class="cols-sm-2 control-label">Last Name</label>
                                         <div class="cols-sm-10">
                                             <div class="input-group">
-                                                <span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
+                                                <span class="input-group-addon"><i class="fa fa-user fa-lg" aria-hidden="true"></i>&nbsp;&nbsp;</span>
                                                 <input type="text" class="form-control" value={this.state.last_name} name="last_name" placeholder="Enter your last name" onChange={this.handleInput} required/>
                                             </div>
                                         </div>
                                     </div>
                                     <div className="form-group">
-                                        <label htmlFor="last_name" className="cols-sm-2 control-label">Street Address</label>
+                                        <label htmlFor="street_address" className="cols-sm-2 control-label">Street Address</label>
                                         <div className="cols-sm-10">
                                             <div className="input-group">
-                                                <span className="input-group-addon"><i className="fa fa-lock fa-lg" aria-hidden="true"></i></span>
+                                                <span className="input-group-addon"><i className="fa fa-home fa-lg" aria-hidden="true"></i>&nbsp;&nbsp;</span>
                                                 <input type="text" className="form-control" value={this.state.street_address} name="street_address" placeholder="Enter your street address" onChange={this.handleInput} required/>
                                             </div>
                                         </div>
@@ -161,7 +164,7 @@ class SignUpForm extends React.Component {
                                         <label htmlFor="last_name" className="cols-sm-2 control-label">City</label>
                                         <div className="cols-sm-10">
                                             <div className="input-group">
-                                                <span className="input-group-addon"><i className="fa fa-lock fa-lg" aria-hidden="true"></i></span>
+                                                <span className="input-group-addon"><i className="fa fa-home fa-lg" aria-hidden="true"></i>&nbsp;&nbsp;</span>
                                                 <input type="text" className="form-control" value={this.state.city} name="city" placeholder="Enter your city" onChange={this.handleInput} required/>
                                             </div>
                                         </div>
@@ -170,7 +173,7 @@ class SignUpForm extends React.Component {
                                         <label htmlFor="last_name" className="cols-sm-2 control-label">State</label>
                                         <div className="cols-sm-10">
                                             <div className="input-group">
-                                                <span className="input-group-addon"><i className="fa fa-lock fa-lg" aria-hidden="true"></i></span>
+                                                <span className="input-group-addon"><i className="fa fa-home fa-lg" aria-hidden="true"></i>&nbsp;&nbsp;</span>
                                                 <select className="form-control" name="state" placeholder="Select your state" onChange={this.handleInput} required>
                                                     <option value="" disabled selected>Select your State</option>
                                                     <option value="AK">Alaska</option>
@@ -233,7 +236,7 @@ class SignUpForm extends React.Component {
                                         <label htmlFor="number" className="cols-sm-2 control-label">Phone Number</label>
                                         <div className="cols-sm-10">
                                             <div className="input-group">
-                                                <span className="input-group-addon"><i className="fa fa-lock fa-lg" aria-hidden="true"></i></span>
+                                                <span className="input-group-addon"><i className="fa fa-phone fa-lg" aria-hidden="true">&nbsp;&nbsp;</i></span>
                                                 <input type="text" className="form-control" value={this.state.number} name="number" placeholder="Enter your phone number" onChange={this.handleInput} />
                                             </div>
                                         </div>
@@ -242,7 +245,7 @@ class SignUpForm extends React.Component {
                                         <label htmlFor="number" className="cols-sm-2 control-label">Image</label>
                                         <div className="cols-sm-10">
                                             <div className="input-group">
-                                                <span className="input-group-addon"><i className="fa fa-lock fa-lg" aria-hidden="true"></i></span>
+                                                <span className="input-group-addon"><i className="fa fa-image fa-lg" aria-hidden="true"></i>&nbsp;&nbsp;</span>
                                                 <input type="text" className="form-control" value={this.state.image} name="image" placeholder="Enter a link to an image" onChange={this.handleInput} />
                                             </div>
                                         </div>

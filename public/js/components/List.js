@@ -19,10 +19,7 @@ class ListItem extends React.Component {
       this.props.updateBaseURL('events', url)   // if we use this url must be `/events?d=${item._id}`
     } else {
       console.log('add to itinerary');
-      console.log(this.props.item._id)
-      return(
-        <Redirect to={`/itinerary_new?i=${this.props.item._id}`} />
-      )
+
       
     }
   }

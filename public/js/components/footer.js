@@ -5,12 +5,12 @@ class Footer extends React.Component {
                 <div className="container">
                     <div className="row text-center">
                         <div className="col-md-12">
-                            <a className="nav-item" href="#">ABOUT</a>
-                            <a className="nav-item" href="#">TERMS & CONDITIONS</a>
-                            <a className="nav-item" href="#">CUSTOMER SUPPORT</a>
-                            <a className="nav-item" href="#"><i class="fab fa-facebook-square"></i></a>
-                            <a className="nav-item" href="#"><i class="fab fa-instagram"></i></a>
-                            <a className="nav-item" href="#"><i class="fab fa-twitter-square"></i></a>
+                            <a className="nav-item text-dark" href="#">ABOUT</a>
+                            <a className="nav-item text-dark" href="#">TERMS & CONDITIONS</a>
+                            <a className="nav-item text-dark" href="#">CUSTOMER SUPPORT</a>
+                            <a className="nav-item text-dark" href="#"><i class="fab fa-facebook-square"></i></a>
+                            <a className="nav-item text-dark" href="#"><i class="fab fa-instagram"></i></a>
+                            <a className="nav-item text-dark" href="#"><i class="fab fa-twitter-square"></i></a>
                         </div>
                     </div>
                     <div className="row text-center">

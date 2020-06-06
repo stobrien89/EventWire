@@ -56,12 +56,15 @@ class LoginForm extends React.Component {
 
     render () {
         return (
-        <div className="container-fluid container-height">
+        <div className="container-fluid container-height login-form">
             <div className="container">
                 <div className="row justify-content-center">
                         <div className="col-md-8">
                             <div className="card">
-                                <div className="card-header text-center">Log In</div>
+                                <div className="card-header text-center">
+                                  <img className="img-fluid" id="heading-pin" src="/img/ew_pin.png"></img>
+                                  <h1>Log In</h1>
+                                </div>
                                 <div className="card-body">
                                 {this.state.errorMessage && <p>{this.state.errorMessage}</p>}
                                 {this.state.matchError && <p>{this.state.matchError}</p>}
@@ -106,7 +109,7 @@ class LoginForm extends React.Component {
                             </div>
                         </div>
                     </div>
-                    {this.state.loggedIn && <Redirect to="/"/>}
+                    {this.state.loggedIn && <Redirect to="/editprofile"/>}
             </div>
         </div>
         )
