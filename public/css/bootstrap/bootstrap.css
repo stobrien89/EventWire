@@ -2509,7 +2509,16 @@ fieldset:disabled a.btn {
 
 .btn-primary:hover {
   color: #fff;
-  background: linear-gradient(180deg, #FFFFFF 0%, rgba(255, 255, 255, 0) 100%), linear-gradient(180deg, #DC4626 0%, rgba(255, 255, 255, 0) 100%), linear-gradient(180deg, #FFFFFF 0%, rgba(255, 255, 255, 0) 100%), linear-gradient(180deg, #FFFFFF 0%, rgba(255, 255, 255, 0) 100%), linear-gradient(180deg, #FFFFFF 0%, rgba(255, 255, 255, 0) 100%), #421B43;
+  background: linear-gradient(180deg, #FFFFFF 0%, 
+              rgba(255, 255, 255, 0) 100%),
+              linear-gradient(180deg, #DC4626 0%,
+              rgba(255, 255, 255, 0) 100%),
+              linear-gradient(180deg, #FFFFFF 0%,
+              rgba(255, 255, 255, 0) 100%),
+              linear-gradient(180deg, #FFFFFF 0%,
+              rgba(255, 255, 255, 0) 100%),
+              linear-gradient(180deg, #FFFFFF 0%, 
+              rgba(255, 255, 255, 0) 100%), #421B43;
 }
 
 .btn-primary:focus, .btn-primary.focus {
@@ -8821,7 +8830,7 @@ button.bg-dark:focus {
 }
 
 .text-primary {
-  color: #007bff !important;
+  color: #421B43 !important;
 }
 
 a.text-primary:hover, a.text-primary:focus {

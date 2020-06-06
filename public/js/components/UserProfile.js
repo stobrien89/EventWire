@@ -16,7 +16,7 @@ class UserProfile extends React.Component {
                     <div className="row">
                         <div className="col-md-4">
                             <div className="profile-img">
-                                <img src="https://upload.wikimedia.org/wikipedia/commons/8/89/Portrait_Placeholder.png" alt=""/>
+                                <img src={currentUser.image ? currentUser.image :"https://upload.wikimedia.org/wikipedia/commons/8/89/Portrait_Placeholder.png"} alt=""/>
                                 <div className="file btn btn-lg btn-primary">
                                     Change Photo
                                     <input type="file" name="file"/>
@@ -26,10 +26,10 @@ class UserProfile extends React.Component {
                         <div className="col-md-6">
                             <div className="profile-head">
                                         <h5>
-                                            User's Name{/* {currentUser.contact.first_name} {currentUser.contact.last_name} */}
+                                            {currentUser.contact.first_name} {currentUser.contact.last_name}
                                         </h5>
                                         <h6>
-                                            Some description?
+                                            Here for a good time.
                                         </h6>
                                         <p className="profile-rating">Some other info</p>
                                 <ul className="nav nav-tabs" id="myTab" role="tablist">
@@ -49,10 +49,9 @@ class UserProfile extends React.Component {
                     <div className="row">
                         <div class="col-md-4">
                                 <div class="profile-work">
-                                    <h6>Joined on date</h6>
-                                    <p>Join date</p>
-                                    {/* <p>{currentUser.createdAt.toLocaleDateString('en-US')}</p> */}
-                                    <h6>Completed Itineraries</h6>
+                                    <h6>Joined On:</h6>
+                                    <p>{currentUser.createdAt}</p>
+                                    <h6>Completed Itineraries:</h6>
                                     <p>Itinerary details</p>
                                 </div>
                             </div>
@@ -65,8 +64,7 @@ class UserProfile extends React.Component {
                                                 </div>
                                                 <div className="col-md-6">
                                                     <p>
-                                                        {/* {currentUser.contact.first_name} {currentUser.contact.last_name} */}
-                                                        User's name
+                                                        {currentUser.contact.first_name} {currentUser.contact.last_name}
                                                     </p>
                                                 </div>
                                             </div>
@@ -76,8 +74,7 @@ class UserProfile extends React.Component {
                                                 </div>
                                                 <div className="col-md-6">
                                                     <p>
-                                                        {/* {currentUser.email} */}
-                                                        user's email
+                                                        {currentUser.email}
                                                     </p>
                                                 </div>
                                             </div>
@@ -87,8 +84,7 @@ class UserProfile extends React.Component {
                                                 </div>
                                                 <div className="col-md-6">
                                                     <p>
-                                                        user's street address
-                                                        {/* {currentUser.contact.address.street_address} */}
+                                                        {currentUser.contact.address.street_address}
                                                     </p>
                                                 </div>
                                             </div>
@@ -98,7 +94,7 @@ class UserProfile extends React.Component {
                                                 </div>
                                                 <div className="col-md-6">
                                                     <p>
-                                                    User's city {/* {currentUser.contact.address.city} */}
+                                                    {currentUser.contact.address.city}
                                                     </p>
                                                 </div>
                                             </div>
@@ -108,26 +104,18 @@ class UserProfile extends React.Component {
                                                 </div>
                                                 <div className="col-md-6">
                                                     <p>
-                                                        User's state{/* {currentUser.contact.address.state} */}
+                                                    {currentUser.contact.address.state}
                                                     </p>
                                                 </div>
                                             </div>
                                             <div className="row">
                                                 <div className="col-md-6">
-                                                    <label>Phone</label>
+                                                    <label>Phone Number</label>
                                                 </div>
                                                 <div className="col-md-6">
                                                     <p>
-                                                        User's number{/* {currentUser.contact.number} */}
+                                                        {currentUser.contact.number}
                                                     </p>
-                                                </div>
-                                            </div>
-                                            <div className="row">
-                                                <div className="col-md-6">
-                                                    <label>Joined On:</label>
-                                                </div>
-                                                <div className="col-md-6">
-                                                    <p>Joined on date</p>
                                                 </div>
                                             </div>
                                 </div>

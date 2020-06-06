@@ -17,29 +17,31 @@ router.get('/seed', (req, res)=> {
             email: 'test@test.com',
             password: generateHash('test'),
             contact: {
-                first_name: 'test',
-                last_name: 'test',
+                first_name: 'Nicolas',
+                last_name: 'Cage',
                 address: {
                     street_address: '101 test st.',
                     city: 'Testville',
                     state: 'WA',
                 },
-                number: 1111111111
-            }
+                number: 2065451683
+            },
+            image: 'https://avatarfiles.alphacoders.com/146/146246.jpg'
         },
         {
             email: 'test1@test.com',
             password: generateHash('test'),
             contact: {
-                first_name: 'test1',
-                last_name: 'test1',
+                first_name: 'Dave',
+                last_name: 'Chappelle',
                 address: {
                     street_address: '102 test st.',
                     city: 'Testville',
-                    state: 'NC',
+                    state: 'OH',
                 },
-                number: 9195088370
-            }
+                number: 9195188370
+            },
+            image: 'https://hips.hearstapps.com/esq.h-cdn.co/assets/16/16/1461424900-prince-chappelle.png'
         }
 
     ], (err, users) => {
