@@ -124,12 +124,12 @@ class SignUpForm extends React.Component {
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="form-group">
-                                        <label htmlFor="username" class="cols-sm-2 control-label">Confirm Password</label>
-                                        <div class="cols-sm-10">
-                                            <div class="input-group">
-                                                <span class="input-group-addon"><i class="fa fa-lock fa" aria-hidden="true"></i>&nbsp;&nbsp;</span>
-                                                <input type="password" class="form-control" value={this.state.confirm} name="confirm"  placeholder="Re-enter your Password" onChange={this.handleInput} required/>
+                                    <div className="form-group">
+                                        <label htmlFor="username" className="cols-sm-2 control-label">Confirm Password</label>
+                                        <div className="cols-sm-10">
+                                            <div className="input-group">
+                                                <span className="input-group-addon"><i className="fa fa-lock fa" aria-hidden="true"></i>&nbsp;&nbsp;</span>
+                                                <input type="password" className="form-control" value={this.state.confirm} name="confirm"  placeholder="Re-enter your Password" onChange={this.handleInput} required/>
                                             </div>
                                         </div>
                                     </div>
@@ -142,12 +142,12 @@ class SignUpForm extends React.Component {
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="form-group">
-                                        <label htmlFor="last_name" class="cols-sm-2 control-label">Last Name</label>
-                                        <div class="cols-sm-10">
-                                            <div class="input-group">
-                                                <span class="input-group-addon"><i class="fa fa-user fa-lg" aria-hidden="true"></i>&nbsp;&nbsp;</span>
-                                                <input type="text" class="form-control" value={this.state.last_name} name="last_name" placeholder="Enter your last name" onChange={this.handleInput} required/>
+                                    <div className="form-group">
+                                        <label htmlFor="last_name" className="cols-sm-2 control-label">Last Name</label>
+                                        <div className="cols-sm-10">
+                                            <div className="input-group">
+                                                <span className="input-group-addon"><i className="fa fa-user fa-lg" aria-hidden="true"></i>&nbsp;&nbsp;</span>
+                                                <input type="text" className="form-control" value={this.state.last_name} name="last_name" placeholder="Enter your last name" onChange={this.handleInput} required/>
                                             </div>
                                         </div>
                                     </div>
