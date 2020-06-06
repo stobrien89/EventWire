@@ -1,4 +1,9 @@
 class ListItem extends React.Component {
+  state = {
+    destinations_onClick: false,
+    events_onClick: false,
+    nextURL: ''
+  }
 
   FirstSentence = (str) => {
     const regex = /^(.*?(?<!\b\w)[.?!])\s+[A-Z0-9]/;
@@ -12,14 +17,11 @@ class ListItem extends React.Component {
 
   handleClick = (listName, url) => {
     if (listName === 'destinations') {
-
-      window.history.pushState('', 'Event Wire - Events', url);
-      // window.history.go(url);                // if we use this url must be `/event?d=${item._id}`
-
-      this.props.updateBaseURL('events', url)   // if we use this url must be `/events?d=${item._id}`
+      this.setState({ destinations_onClick: true });
     } else {
-      console.log('add to itinerary');
+      this.setState({ events_onClick: true });
     }
+    this.setState({ nextURL: url });
   }
 
   render() {
@@ -48,17 +50,12 @@ class ListItem extends React.Component {
             <h5 class="card-title"><Link to={`${detailsPage}=${item._id}`}>{item.name}</Link></h5>
             <p className={`card-text card-text-overflow ${cardTextClass}`}>{short_description}</p>
 
-            {/* WHILE VIEWING AN EVENT A USER CAN SEE THE EVENT DETAILS
-            <Link to='/login' class="mt-auto btn btn-md btn-outline-secondary">
-              View Details
-            </Link> */}
-
             {/* IF USER IS VIEWING A DESTINATION THEY CAN SEARCH FOR EVENTS */}
             {listName === 'destinations' &&
               <button
                 type="button"
                 class="mt-auto btn btn-md btn-outline-secondary"
-                onClick={() => { this.handleClick(listName, `/events?d=${item._id}`) }}
+                onClick={() => { this.handleClick(listName, `/event?d=${item._id}`) }}
               >
                 {buttonHTML}
               </button>
@@ -83,6 +80,14 @@ class ListItem extends React.Component {
             }
           </div>
         </div>
+
+        {this.state.destinations_onClick && this.state.nextURL !== '' &&
+          <Redirect to={this.state.nextURL} />
+        }
+
+        {this.state.events_onClick && this.state.nextURL !== '' &&
+          <Redirect to={this.state.nextURL} />
+        }
       </div >
     );
   }
