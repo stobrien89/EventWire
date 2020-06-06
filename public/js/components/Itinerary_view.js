@@ -54,7 +54,7 @@ class ItineraryView extends React.Component{
                                     </tr>
                                 </tbody>
                             </table>
-                            <Link to={`/event?d=${this.state.itinerary.destination}`} className="btn">Find Event</Link>
+                            <Link to={`/event?d=${this.state.itinerary.destination}&i=${this.state.itinerary._id}`} className="btn btn-primary">Find Event</Link>
                             <h3>Events</h3>
                             <div className="row">
                                 {this.state.events.length > 0 && this.state.events.map((event, index)=>{
