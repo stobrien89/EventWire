@@ -26,7 +26,7 @@ class NavBar extends React.Component {
                             <li className="nav-item">
                                 <Link className="nav-link" to={{
                                     pathname: '/signup',
-                                    state: {handleCurrentUser: 'hi'}
+                                    state: { handleCurrentUser: 'hi' }
                                 }}>SIGN UP</Link>
                             </li>
                         </ul>
