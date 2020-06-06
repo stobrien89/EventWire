@@ -40,27 +40,19 @@ General App Idea/Purpose: An app that allows me to.
     -Figma (Wireframes)
 
 ## Wireframes
-![Home]
-(https://trello-attachments.s3.amazonaws.com/5ed5c4a06abe6e41827697fd/1152x700/a92272eba09c26558430d2d81219977f/EventWire_Home.png)
+![Home](https://trello-attachments.s3.amazonaws.com/5ed5c4a06abe6e41827697fd/1152x700/a92272eba09c26558430d2d81219977f/EventWire_Home.png)
 
-![Destinations]
-(https://trello-attachments.s3.amazonaws.com/5ed5c4a06abe6e41827697fd/1152x700/c2ae7dff9a00773644caf7f29f25d867/Destination.png)
+![Destinations](https://trello-attachments.s3.amazonaws.com/5ed5c4a06abe6e41827697fd/1152x700/c2ae7dff9a00773644caf7f29f25d867/Destination.png)
 
-![Events]
-(https://trello-attachments.s3.amazonaws.com/5ed5c4a06abe6e41827697fd/1152x700/6528ac19aa73ed2377dd2f815b0f5aaf/Event.png)
+![Events](https://trello-attachments.s3.amazonaws.com/5ed5c4a06abe6e41827697fd/1152x700/6528ac19aa73ed2377dd2f815b0f5aaf/Event.png)
 
-![Event_Description]
-(https://trello-attachments.s3.amazonaws.com/5ed5c4a06abe6e41827697fd/1152x700/e157a37507c589b0d1112d032769b4aa/Events_Description.png)
+![Event_Description](https://trello-attachments.s3.amazonaws.com/5ed5c4a06abe6e41827697fd/1152x700/e157a37507c589b0d1112d032769b4aa/Events_Description.png)
 
-![New_User]
-(https://trello-attachments.s3.amazonaws.com/5ed292d81874405536f54236/5ed5c4a06abe6e41827697fd/c5004de5500475d16499cbaa0195b8d6/New_User.png)
+![New_User](https://trello-attachments.s3.amazonaws.com/5ed292d81874405536f54236/5ed5c4a06abe6e41827697fd/c5004de5500475d16499cbaa0195b8d6/New_User.png)
 
-![New_Itinerary]
-(https://trello-attachments.s3.amazonaws.com/5ed292d81874405536f54236/5ed5c4a06abe6e41827697fd/0e24ed445ce196d450758a843709eb36/New_Itinerary.png)
+![New_Itinerary](https://trello-attachments.s3.amazonaws.com/5ed292d81874405536f54236/5ed5c4a06abe6e41827697fd/0e24ed445ce196d450758a843709eb36/New_Itinerary.png)
 
-![Created_Itinerary]
-(https://trello-attachments.s3.amazonaws.com/5ed292d81874405536f54236/5ed5c4a06abe6e41827697fd/07820d876ffc342fe4ba6dc6d92bc842/Created_Itinerary.png)
+![Created_Itinerary](https://trello-attachments.s3.amazonaws.com/5ed292d81874405536f54236/5ed5c4a06abe6e41827697fd/07820d876ffc342fe4ba6dc6d92bc842/Created_Itinerary.png)
 
-![User_Landing_Page]
-(https://trello-attachments.s3.amazonaws.com/5ed292d81874405536f54236/5ed5c4a06abe6e41827697fd/2c91eac6ba1f9cb433dae7d0f999f9c3/User_Landing_Page.png)
+![User_Landing_Page](https://trello-attachments.s3.amazonaws.com/5ed292d81874405536f54236/5ed5c4a06abe6e41827697fd/2c91eac6ba1f9cb433dae7d0f999f9c3/User_Landing_Page.png)
 
