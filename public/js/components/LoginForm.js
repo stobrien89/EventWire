@@ -66,8 +66,8 @@ class LoginForm extends React.Component {
                                   <h1>Log In</h1>
                                 </div>
                                 <div className="card-body">
-                                {this.state.errorMessage && <p>{this.state.errorMessage}</p>}
-                                {this.state.matchError && <p>{this.state.matchError}</p>}
+                                {this.state.errorMessage && <p className="text-center">{this.state.errorMessage}</p>}
+                                {this.state.matchError && <p className="text-center">{this.state.matchError}</p>}
                                     <form className="form-horizontal" onSubmit={this.handleLogin}>
 
                                         <div className="form-group">
@@ -75,7 +75,7 @@ class LoginForm extends React.Component {
                                             <div className="cols-sm-10">
                                                 <div className="input-group">
                                                     <span className="input-group-addon"><i className="fa fa-envelope fa" aria-hidden="true"></i>&nbsp;&nbsp;</span>
-                                                    <input type="text" value={this.state.email} className="form-control" name="email" placeholder="Enter your Email" onChange={this.handleInput} />
+                                                    <input type="text" value={this.state.email} className="form-control" name="email" placeholder="Enter your Email" onChange={this.handleInput} required/>
                                                 </div>
                                             </div>
                                         </div>
@@ -84,7 +84,7 @@ class LoginForm extends React.Component {
                                             <div className="cols-sm-10">
                                                 <div className="input-group">
                                                     <span className="input-group-addon"><i className="fa fa-lock fa-lg" aria-hidden="true">&nbsp;&nbsp;</i></span>
-                                                    <input type="password" value={this.state.password} className="form-control" name="password" placeholder="Enter your Password" onChange={this.handleInput} />
+                                                    <input type="password" value={this.state.password} className="form-control" name="password" placeholder="Enter your Password" onChange={this.handleInput} required/>
                                                 </div>
                                             </div>
                                         </div>
@@ -93,7 +93,7 @@ class LoginForm extends React.Component {
                                             <div className="cols-sm-10">
                                                 <div className="input-group">
                                                     <span className="input-group-addon"><i className="fa fa-lock fa-lg" aria-hidden="true"></i>&nbsp;&nbsp;</span>
-                                                    <input type="password" value={this.state.confirm} className="form-control" name="confirm" placeholder="Confirm your Password" onChange={this.handleInput} />
+                                                    <input type="password" value={this.state.confirm} className="form-control" name="confirm" placeholder="Confirm your Password" onChange={this.handleInput} required/>
                                                 </div>
                                             </div>
                                         </div>

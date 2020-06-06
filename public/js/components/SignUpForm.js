@@ -10,7 +10,7 @@ class SignUpForm extends React.Component {
         street_address: '',
         city: '',
         state: '',
-        number: 0,
+        number: '',
         image: '',
   }  
 
