@@ -1,4 +1,3 @@
-
 class Event extends React.Component {
   state = {
     event: {}
@@ -23,10 +22,6 @@ class Event extends React.Component {
 
   componentDidMount() {
     this.getData();
-  }
-
-  handleChange = (event) => {
-    this.setState({ [event.target.id]: event.target.value })
   }
 
   render() {
@@ -98,7 +93,7 @@ class Event extends React.Component {
             </div>
           </div>
         </div>
-      </div >
+      </div>
     )
   }
 }

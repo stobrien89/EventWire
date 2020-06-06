@@ -1,37 +1,84 @@
-class EditForm extends React.Component {
+class UserEditForm extends React.Component {
     state = {
-        email: '',
-        password: '',
-        first_name: '',
-        last_name: '',
-        street_address: '',
-        city: '',
-        state: '',
-        number: 0,
-        image: '',
+        email: this.props.currentUser.email,
+        first_name: this.props.currentUser.contact.first_name,
+        last_name: this.props.currentUser.contact.last_name,
+        street_address: this.props.currentUser.contact.address.street_address,
+        city: this.props.currentUser.contact.address.city,
+        state: this.props.currentUser.contact.address.state,
+        number: this.props.currentUser.contact.number,
+        image: this.props.currentUser.image,
     }  
 
     handleInput = event => {
-        this.setState({
-            [event.target.name]: event.target.value
-        })
+        const { target }  = event;
+        const value = target.value;
+        const { name }  = target;
+
+        this.setState({ [name]: value });
     }
 
-    editUser = () => {
+    editUser = (event) => {
         event.preventDefault();
+        const updatedUser = {
+            email: this.state.email,
+            contact: {
+                first_name: this.state.first_name,
+                last_name: this.state.last_name,
+                address: {
+                    street_address: this.state.street_address,
+                    city: this.state.city,
+                    state: this.state.state,
+                },
+                number: this.state.number
+            },
+            image: this.state.image
+        }
         fetch(`users/${this.props.currentUser._id}`, {
-            body: JSON.stringify(this.props.currentUser),
+            body: JSON.stringify(updatedUser),
             method: 'PUT',
             headers: {
                 'Accept': 'application/json, text/plain, */*',
                 'Content-Type': 'application/json'}
         }).then(response => response.json().then(json => {
-            this.props.handleCurrentUser();
+            this.props.handleCurrentUser(json);
+            this.setState({
+                email: '',
+                first_name: '',
+                last_name: '',
+                street_address: '',
+                city: '',
+                state: '',
+                number: '',
+                image: '',
+                update: true
+            })
         }))
     }
 
+    deleteUser = (event) => {
+        event.preventDefault();
+        fetch(`/users/${this.props.currentUser._id}`, {
+            method: "DELETE"
+        }).then(() => {
+            this.setState( {
+                email: '',
+                first_name: '',
+                last_name: '',
+                street_address: '',
+                city: '',
+                state: '',
+                number: '',
+                image: '',
+                delete: true
+            })
+            this.props.handleLogout();
+        })
+
+    }
+
     render() {
-        const {currentUser} = this.props;
+        const { currentUser } = this.props;
 
         return (
         <div className="container-fluid container-height">
@@ -39,36 +86,21 @@ class EditForm extends React.Component {
                 <div className="row justify-content-center">
                     <div className="col-md-8">
                         <div className="card">
-                            <div className="card-header text-center">Register</div>
+                            <div className="card-header text-center">
+                                <img className="img-fluid" id="heading-pin" src="/img/ew_pin.png"></img>
+                                <h1>Update Profile</h1>
+                            </div>
                             <div className="card-body">
                                 {this.state.matchError && <p>{this.state.matchError}</p>}
                                 {this.state.error && <p>{this.state.error}</p>}
-                                <form className="form-horizontal" onSubmit={this.handleSignUp}>
+                                <form className="form-horizontal">
 
                                     <div className="form-group">
                                         <label htmlFor="email" className="cols-sm-2 control-label">Email</label>
                                         <div className="cols-sm-10">
                                             <div className="input-group">
-                                                <span className="input-group-addon"><i className="fa fa-user fa" aria-hidden="true"></i></span>
-                                                <input type="text" className="form-control" value={this.state.email} name="email" placeholder="Enter your Email" onChange={this.handleInput} required/>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div className="form-group">
-                                        <label htmlFor="password" className="cols-sm-2 control-label">Password</label>
-                                        <div className="cols-sm-10">
-                                            <div className="input-group">
-                                                <span className="input-group-addon"><i className="fa fa-envelope fa" aria-hidden="true"></i></span>
-                                                <input type="password" className="form-control" value={this.state.password} name="password" placeholder="Enter your Password" onChange={this.handleInput} required/>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label htmlFor="username" class="cols-sm-2 control-label">Confirm Password</label>
-                                        <div class="cols-sm-10">
-                                            <div class="input-group">
-                                                <span class="input-group-addon"><i class="fa fa-users fa" aria-hidden="true"></i></span>
-                                                <input type="password" class="form-control" value={this.state.confirm} name="confirm"  placeholder="Re-enter your Password" onChange={this.handleInput} required/>
+                                                <span className="input-group-addon"><i className="fa fa-envelope fa" aria-hidden="true"></i>&nbsp;&nbsp;</span>
+                                                <input type="text" className="form-control" defaultValue={currentUser.email} name="email" onChange={this.handleInput} required/>
                                             </div>
                                         </div>
                                     </div>
@@ -76,8 +108,8 @@ class EditForm extends React.Component {
                                         <label htmlFor="first_name" className="cols-sm-2 control-label">First Name</label>
                                         <div className="cols-sm-10">
                                             <div className="input-group">
-                                                <span className="input-group-addon"><i className="fa fa-lock fa-lg" aria-hidden="true"></i></span>
-                                                <input type="text" className="form-control" value={this.state.first_name} name="first_name" placeholder="Enter your first name" onChange={this.handleInput} required/>
+                                                <span className="input-group-addon"><i className="fa fa-user fa-lg" aria-hidden="true"></i>&nbsp;&nbsp;</span>
+                                                <input type="text" className="form-control" defaultValue={currentUser.contact.first_name} name="first_name" onChange={this.handleInput} required/>
                                             </div>
                                         </div>
                                     </div>
@@ -85,8 +117,8 @@ class EditForm extends React.Component {
                                         <label htmlFor="last_name" class="cols-sm-2 control-label">Last Name</label>
                                         <div class="cols-sm-10">
                                             <div class="input-group">
-                                                <span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
-                                                <input type="text" class="form-control" value={this.state.last_name} name="last_name" placeholder="Enter your last name" onChange={this.handleInput} required/>
+                                                <span class="input-group-addon"><i class="fa fa-user fa-lg" aria-hidden="true"></i>&nbsp;&nbsp;</span>
+                                                <input type="text" class="form-control" defaultValue={currentUser.contact.last_name} name="last_name" onChange={this.handleInput} required/>
                                             </div>
                                         </div>
                                     </div>
@@ -94,8 +126,8 @@ class EditForm extends React.Component {
                                         <label htmlFor="last_name" className="cols-sm-2 control-label">Street Address</label>
                                         <div className="cols-sm-10">
                                             <div className="input-group">
-                                                <span className="input-group-addon"><i className="fa fa-lock fa-lg" aria-hidden="true"></i></span>
-                                                <input type="text" className="form-control" value={this.state.street_address} name="street_address" placeholder="Enter your street address" onChange={this.handleInput} required/>
+                                                <span className="input-group-addon"><i className="fa fa-home fa-lg" aria-hidden="true"></i>&nbsp;&nbsp;</span>
+                                                <input type="text" className="form-control" defaultValue={currentUser.contact.address.street_address} name="street_address" onChange={this.handleInput} required/>
                                             </div>
                                         </div>
                                     </div>
@@ -103,8 +135,8 @@ class EditForm extends React.Component {
                                         <label htmlFor="last_name" className="cols-sm-2 control-label">City</label>
                                         <div className="cols-sm-10">
                                             <div className="input-group">
-                                                <span className="input-group-addon"><i className="fa fa-lock fa-lg" aria-hidden="true"></i></span>
-                                                <input type="text" className="form-control" value={this.state.city} name="city" placeholder="Enter your city" onChange={this.handleInput} required/>
+                                                <span className="input-group-addon"><i className="fa fa-home fa-lg" aria-hidden="true"></i>&nbsp;&nbsp;</span>
+                                                <input type="text" className="form-control" defaultValue={currentUser.contact.address.city} name="city" onChange={this.handleInput} required/>
                                             </div>
                                         </div>
                                     </div>
@@ -112,8 +144,8 @@ class EditForm extends React.Component {
                                         <label htmlFor="last_name" className="cols-sm-2 control-label">State</label>
                                         <div className="cols-sm-10">
                                             <div className="input-group">
-                                                <span className="input-group-addon"><i className="fa fa-lock fa-lg" aria-hidden="true"></i></span>
-                                                <select className="form-control" name="state" placeholder="Select your state" onChange={this.handleInput} required>
+                                                <span className="input-group-addon"><i className="fa fa-home fa-lg" aria-hidden="true"></i>&nbsp;&nbsp;</span>
+                                                <select className="form-control" name="state" defaultValue={currentUser.contact.address.state} onChange={this.handleInput} required>
                                                     <option value="" disabled selected>Select your State</option>
                                                     <option value="AK">Alaska</option>
                                                     <option value="AL">Alabama</option>
@@ -175,8 +207,8 @@ class EditForm extends React.Component {
                                         <label htmlFor="number" className="cols-sm-2 control-label">Phone Number</label>
                                         <div className="cols-sm-10">
                                             <div className="input-group">
-                                                <span className="input-group-addon"><i className="fa fa-lock fa-lg" aria-hidden="true"></i></span>
-                                                <input type="text" className="form-control" value={this.state.number} name="number" placeholder="Enter your phone number" onChange={this.handleInput} />
+                                                <span className="input-group-addon"><i className="fa fa-phone fa-lg" aria-hidden="true"></i>&nbsp;&nbsp;</span>
+                                                <input type="text" className="form-control" defaultValue={currentUser.contact.number} name="number" onChange={this.handleInput} />
                                             </div>
                                         </div>
                                     </div>
@@ -184,82 +216,27 @@ class EditForm extends React.Component {
                                         <label htmlFor="number" className="cols-sm-2 control-label">Image</label>
                                         <div className="cols-sm-10">
                                             <div className="input-group">
-                                                <span className="input-group-addon"><i className="fa fa-lock fa-lg" aria-hidden="true"></i></span>
-                                                <input type="text" className="form-control" value={this.state.image} name="image" placeholder="Enter a link to an image" onChange={this.handleInput} />
+                                                <span className="input-group-addon"><i className="fa fa-image fa-lg" aria-hidden="true"></i>&nbsp;&nbsp;</span>
+                                                <input type="text" className="form-control" defaultValue={currentUser.image} name="image" onChange={this.handleInput} />
                                             </div>
                                         </div>
                                     </div>
                                     <div className="form-group ">
-                                        <button type="submit" className="btn btn-primary btn-lg btn-block login-button">Register</button>
+                                        <button type="submit" className="btn btn-primary btn-lg btn-block login-button" onClick={this.editUser}>Update</button>
                                     </div>
-                                    <div className="login-register text-center">
-                                        <p>Already have an account? <Link  to="/login">Log In</Link></p>
+                                    <div className="form-group ">
+                                        <button type="submit" className="btn btn-danger btn-lg btn-block login-button" onClick={this.deleteUser}>Delete Account</button>
                                     </div>
                                 </form>
+                                {this.state.update && <Redirect to="/profile"/>}
+                                {this.state.delete && <Redirect to="/"/>}
                             </div>
 
                         </div>
                     </div>
                 </div>
             </div>
-            {this.state.loggedIn && <Redirect to="/"/>}
         </div>
-        
-        
-        //     <div className="container">
-        //         <h2>Edit profile information</h2>
-  
-        //             <form>
-        //                 <div>
-        //                 <label htmlFor='email'>Email</label>
-        //                 <input type='text' name='email' value={currentUser.email} onChange={this.handleInput} />
-        //                 </div>
-            
-        //                 <div>
-        //                 <label htmlFor='password'>Password</label>
-        //                 <input type='text' name='password' value={currentUser.password} onChange={this.handleInput} />
-        //                 </div>
-
-        //                 <div>
-        //                 <label htmlFor='password'>First Name</label>
-        //                 <input type='text' name='first_name' value={currentUser.first_name} onChange={this.handleInput} />
-        //                 </div>
-
-        //                 <div>
-        //                 <label htmlFor='last_name'>Last Name</label>
-        //                 <input type='text' name='last_name' value={currentUser.last_name} onChange={this.handleInput} />
-        //                 </div>
-
-        //                 <div>
-        //                 <label htmlFor='street_address'>Street Address</label>
-        //                 <input type='text' name='street_address' value={currentUser.street_address} onChange={this.handleInput} />
-        //                 </div>
-
-        //                 <div>
-        //                 <label htmlFor='city'>City</label>
-        //                 <input type='text' name='city' value={currentUser.city} onChange={this.handleInput} />
-        //                 </div>
-
-        //                 <div>
-        //                 <label htmlFor='state'>State</label>
-        //                 <input type='text' name='state' value={currentUser.state} onChange={this.handleInput} />
-        //                 </div>
-
-        //                 <div>
-        //                 <label htmlFor='number'>Phone Number</label>
-        //                 <input type='text' name='number' value={currentUser.number} onChange={this.handleInput} />
-        //                 </div> 
-        //                 {/* parseInt number in handleSignUp */}
-
-        //                 <div>
-        //                 <label htmlFor='image'>Profile Picture</label>
-        //                 <input type='text' name='image' value={currentUser.image} onChange={this.handleInput} />
-        //                 </div>
-
-        //                 <input value='Submit' type='submit' onClick={this.editUser} />
-        //             </form>
-        //                 <input value="Delete Account" type="submit" onClick={this.props.deleteAccount}></input>
-        // </div>
         )
     }
 }

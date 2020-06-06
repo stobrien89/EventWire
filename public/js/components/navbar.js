@@ -17,9 +17,9 @@ class NavBar extends React.Component {
                             <li className="nav-item text-primary">
                                 <Link className="nav-link" to="/destination">DESTINATIONS</Link>
                             </li>
-                            <li className="nav-item text-primary">
+                            {/* <li className="nav-item text-primary">
                                 <Link className="nav-link" to="/event">EVENTS</Link>
-                            </li>
+                            </li> */}
                             <li className="nav-item text-primary">
                                 <Link className="nav-link" to="/login">LOGIN</Link>
                             </li>
