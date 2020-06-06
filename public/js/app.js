@@ -17,10 +17,18 @@ class App extends React.Component {
     })
   }
 
+  isLoggedIn = () => {
+    if (this.state.currentUser) {
+      return true
+    }
+    return false
+  }
+
   render() {
     return (
       <div>
         <NavBar />
+        <Feature />
 
         <Route path="/login" render={props => <LoginForm handleCurrentUser={this.handleCurrentUser} />} />
         <Route path="/destination" component={List} />
@@ -30,6 +38,8 @@ class App extends React.Component {
         <Route path="/profile" component={UserProfile} />
         <Route path="/editprofile" render={props => <UserEditForm handleCurrentUser={this.handleCurrentUser} currentUser={this.state.currentUser}/>} />
 
+        <Route path="/event_details" component={Event} />
+        <Route path="/destination_details" />
         <Footer />
       </div>
     )
