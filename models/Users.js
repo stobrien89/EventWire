@@ -40,7 +40,7 @@ const userSchema = new mongoose.Schema ({
     },
     image: String,
     admin: Boolean,
-    itenerary: {},
+    itinerary: {},
     history: {}
 }, {timestamps: true})
 
