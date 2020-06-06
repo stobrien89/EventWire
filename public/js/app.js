@@ -11,7 +11,7 @@ class App extends React.Component {
   }
 
   handleCurrentUser = (user) => {
-    console.log(user)
+    delete user.password;
     this.setState({
       currentUser: user
     })
