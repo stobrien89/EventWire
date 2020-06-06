@@ -42,7 +42,7 @@ const userSchema = new mongoose.Schema ({
     admin: Boolean,
     itenerary: {},
     history: {}
-})
+}, {timestamps: true})
 
 const Users = mongoose.model('Users', userSchema);
 

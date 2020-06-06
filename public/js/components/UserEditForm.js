@@ -42,7 +42,39 @@ class UserEditForm extends React.Component {
                 'Content-Type': 'application/json'}
         }).then(response => response.json().then(json => {
             this.props.handleCurrentUser(json);
+            this.setState({
+                email: '',
+                first_name: '',
+                last_name: '',
+                street_address: '',
+                city: '',
+                state: '',
+                number: '',
+                image: '',
+                update: true
+            })
         }))
+    }
+
+    deleteUser = (event) => {
+        event.preventDefault();
+        fetch(`/users/${this.props.currentUser._id}`, {
+            method: "DELETE"
+        }).then(() => {
+            this.setState( {
+                email: '',
+                first_name: '',
+                last_name: '',
+                street_address: '',
+                city: '',
+                state: '',
+                number: '',
+                image: '',
+                delete: true
+            })
+            this.props.handleLogout();
+        })
+
     }
 
     render() {
@@ -61,7 +93,7 @@ class UserEditForm extends React.Component {
                             <div className="card-body">
                                 {this.state.matchError && <p>{this.state.matchError}</p>}
                                 {this.state.error && <p>{this.state.error}</p>}
-                                <form className="form-horizontal" onSubmit={this.editUser}>
+                                <form className="form-horizontal">
 
                                     <div className="form-group">
                                         <label htmlFor="email" className="cols-sm-2 control-label">Email</label>
@@ -190,9 +222,14 @@ class UserEditForm extends React.Component {
                                         </div>
                                     </div>
                                     <div className="form-group ">
-                                        <button type="submit" className="btn btn-primary btn-lg btn-block login-button">Update</button>
+                                        <button type="submit" className="btn btn-primary btn-lg btn-block login-button" onClick={this.editUser}>Update</button>
+                                    </div>
+                                    <div className="form-group ">
+                                        <button type="submit" className="btn btn-danger btn-lg btn-block login-button" onClick={this.deleteUser}>Delete Account</button>
                                     </div>
                                 </form>
+                                {this.state.update && <Redirect to="/profile"/>}
+                                {this.state.delete && <Redirect to="/"/>}
                             </div>
 
                         </div>
