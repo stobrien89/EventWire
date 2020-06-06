@@ -54,23 +54,6 @@ class LoginForm extends React.Component {
         })
   }
 
-<<<<<<< HEAD
-  render() {
-    return (
-      <div className="container-fluid container-height">
-        <div className="container">
-          <h2>Log In</h2>
-
-          <form>
-            <div>
-              <label htmlFor='email'>Email</label>
-              <input type='text' name='email' onChange={this.handleInput} />
-            </div>
-            <div>
-              <label htmlFor='password'>Password</label>
-              <input type='password' name='password' onChange={this.handleInput} />
-              <input type="checkbox" id="show-password" /><label htmlFor="show-password">Show password</label>
-=======
     render () {
         return (
         <div className="container-fluid container-height">
@@ -124,15 +107,8 @@ class LoginForm extends React.Component {
                         </div>
                     </div>
                     {this.state.loggedIn && <Redirect to="/"/>}
->>>>>>> 9cfb58caace549bdcb31e07d4d04efde292bc2b8
             </div>
         </div>
-<<<<<<< HEAD
-      </div>
-    )
-  }
-=======
         )
       }
->>>>>>> 9cfb58caace549bdcb31e07d4d04efde292bc2b8
 }
