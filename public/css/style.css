@@ -67,6 +67,9 @@ header {
 .details_text i {
   margin: 5px 10px;
 }
+.details_label {
+  font-weight: bold;
+}
 
 .details_description {
   width: 34em;
