@@ -28,6 +28,7 @@ class App extends React.Component {
         <Route path="/itinerary" />
         <Route path="/signup" render={props => <SignUpForm handleCurrentUser={this.handleCurrentUser} />} />
         <Route path="/profile" component={UserProfile} />
+        <Route path="/editprofile" render={props => <UserEditForm handleCurrentUser={this.handleCurrentUser} currentUser={this.state.currentUser}/>} />
 
         <Footer />
       </div>
