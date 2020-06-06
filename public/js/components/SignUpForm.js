@@ -99,11 +99,11 @@ class SignUpForm extends React.Component {
                         <div className="card">
                             <div className="card-header text-center">
                                 <img className="img-fluid" id="heading-pin" src="/img/ew_pin.png"></img>
-                                <h1>Register</h1>
+                                <h1>Sign Up</h1>
                             </div>
                             <div className="card-body">
-                                {this.state.matchError && <p>{this.state.matchError}</p>}
-                                {this.state.error && <p>{this.state.error}</p>}
+                                {this.state.matchError && <p className="text-center">{this.state.matchError}</p>}
+                                {this.state.error && <p className="text-center">{this.state.error}</p>}
                                 <form className="form-horizontal" onSubmit={this.handleSignUp}>
 
                                     <div className="form-group">
@@ -263,7 +263,7 @@ class SignUpForm extends React.Component {
                     </div>
                 </div>
             </div>
-            {this.state.loggedIn && <Redirect to="/"/>}
+            {this.state.loggedIn && <Redirect to="/itinerary"/>}
         </div>
       )
     }

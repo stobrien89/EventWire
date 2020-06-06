@@ -16,7 +16,7 @@ class UserProfile extends React.Component {
                     <div className="row">
                         <div className="col-md-4">
                             <div className="profile-img">
-                                <img src="https://upload.wikimedia.org/wikipedia/commons/8/89/Portrait_Placeholder.png" alt=""/>
+                                <img src={currentUser.image ? currentUser.image :"https://upload.wikimedia.org/wikipedia/commons/8/89/Portrait_Placeholder.png"} alt=""/>
                                 <div className="file btn btn-lg btn-primary">
                                     Change Photo
                                     <input type="file" name="file"/>
