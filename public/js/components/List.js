@@ -65,11 +65,13 @@ class ListItem extends React.Component {
       buttonHTML = 'Find Events';
       cardTextClass = 'card-text-height-destination';
     } else { // events
-      short_description = this.FirstSentence(item.description);
+      short_description = item.description; //this.FirstSentence(item.description);
       detailsPage = '/event_details?e';
       buttonHTML = this.props.isLoggedIn ? 'Add to Itinerary' : 'Login to Add';
       cardTextClass = 'card-text-height-event';
     }
+
+    const query = this.props.itineraryId === '' ? '' : '&i=' + this.props.itineraryId;
 
     return (
       <div className="col-md-4">
@@ -78,7 +80,7 @@ class ListItem extends React.Component {
             {item.image_url ? <img draggable="false" className="card-img-top card-img-height" src={item.image_url} alt={item.name} /> : ''}
           </div>
           <div className="card-body d-flex flex-column">
-            <h5 class="card-title"><Link to={`${detailsPage}=${item._id}&i=${this.props.itineraryId}`}>{item.name}</Link></h5>
+            <h5 class="card-title"><Link to={`${detailsPage}=${item._id}${query}`}>{item.name}</Link></h5>
             <p className={`card-text card-text-overflow ${cardTextClass}`}>{short_description}</p>
 
             {/* IF USER IS VIEWING A DESTINATION THEY CAN SEARCH FOR EVENTS */}
@@ -152,7 +154,6 @@ class List extends React.Component {
       this.setState({ isLoggedIn: true })
       return true;
     }
-
     return false;
   }
 

@@ -29,12 +29,12 @@ class App extends React.Component {
       currentUser: {}
     })
     localStorage.clear();
-    this.props.history.push('/')
+    this.props.history.push('/honme')
   }
-  
+
   setItinerary = (id) => {
     this.setState({
-      ...this.state.currentUser, itinerary:id
+      ...this.state.currentUser, itinerary: id
     })
   }
 
@@ -45,18 +45,18 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <NavBar currentUser={this.state.currentUser} handleLogout={this.handleLogout}/>
-        <Route path="/home" component={Feature}/>
+        <NavBar currentUser={this.state.currentUser} handleLogout={this.handleLogout} />
+        <Route path="/home" component={Feature} />
         <Route path="/login" render={props => <LoginForm handleCurrentUser={this.handleCurrentUser} />} />
         <Route path="/destination" component={List} />
         <Route path="/event" component={List} />
-        <Route path="/itinerary" render={props => <Itinerary currentUser={this.state.currentUser} setItinerary={this.setItinerary}/>} />
+        <Route path="/itinerary" render={props => <Itinerary currentUser={this.state.currentUser} setItinerary={this.setItinerary} />} />
         {/* <Route path="/itinerary_events" component={ItineraryEvents} /> */}
         <Route path="/itinerary_edit" component={ItineraryEdit} />
         <Route path="/itinerary_view" component={ItineraryView} />
         <Route path="/signup" render={props => <SignUpForm handleCurrentUser={this.handleCurrentUser} />} />
-        <Route path="/profile" render={props => <UserProfile currentUser={this.state.currentUser}/>} />
-        <Route path="/editprofile" render={props => <UserEditForm handleCurrentUser={this.handleCurrentUser} currentUser={this.state.currentUser} handleLogout={this.handleLogout}/>} />
+        <Route path="/profile" render={props => <UserProfile currentUser={this.state.currentUser} />} />
+        <Route path="/editprofile" render={props => <UserEditForm handleCurrentUser={this.handleCurrentUser} currentUser={this.state.currentUser} handleLogout={this.handleLogout} />} />
 
         <Route path="/event_details" component={Event} />
         <Route path="/destination_details" component={Destination} />

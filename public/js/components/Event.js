@@ -81,7 +81,8 @@ class Event extends React.Component {
       console.log('itinerary found');
       fetch('/itinerary/' + itineraryId)
         .then((response) => response.json())
-        .then(async (itinerary) => {
+        .then((itinerary) => {
+          console.log(itinerary.name);
           this.setState({ itineraryId: itineraryId, itinerary: itinerary })
         })
     }
@@ -92,9 +93,9 @@ class Event extends React.Component {
     // console.log('pathname', this.props.location.pathname);
     // console.log('parse', this.parseItineraryID(this.props.location.search));
     // console.log('parseEventID', this.parseEventID(this.props.location.search));
-
+    // console.log(localStorage.getItem('token'));
     const loggedIn = localStorage.getItem('token') ? true : false;
-
+    // console.log(loggedIn);
     // get the path from the browser address bar and only keep the id
     const id = this.parseEventID(this.props.location.search);
 
@@ -102,7 +103,7 @@ class Event extends React.Component {
     // use the id to fetch the event from the EVENTS API
     fetch('/events/' + id)
       .then((response) => response.json())
-      .then(async (event) => {
+      .then((event) => {
         this.setState({ event: event, address: event.address, contact: event.contact, isLoggedIn: loggedIn })
       })
   }
@@ -120,7 +121,7 @@ class Event extends React.Component {
 
       <div className="container-fluid container-height">
         <div className="container">
-          <div className="d-flex flex-row flex-wrap flex-fill justify-content-around">
+          <div className="d-flex flex-row flex-wrap flex-fill justify-content-around mt-3">
             <div className="flex-column flex-fill flex-shrink-1 mb-4">
               <div className="p-2">
                 <h4 className='text-muted'>
@@ -175,7 +176,7 @@ class Event extends React.Component {
               </div>
             </div>
 
-            <div className="d-flex flex-column flex-grow-1 ml-auto">
+            <div className="d-flex flex-column flex-grow-1 ml-auto mt-2">
               <div className="flex-fill"><img className="details_image" src={event.image_url} alt={event.name} /></div>
 
               {this.state.contact &&
