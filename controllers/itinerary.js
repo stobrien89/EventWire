@@ -4,23 +4,23 @@ const Itinerary = require('../models/itinerary.js');
 const path = require('path');
 
 // Seed
-router.get('/seed', (req, res)=>{
+router.get('/seed', (req, res) => {
     Itinerary.create([
         {
-            name:"Test Itinerary 1",
+            name: "Test Itinerary 1",
             occasion: "Birthday Party",
             groupSize: 10,
             startDate: "6-29-20",
             endDate: "7-10-20",
             destination: "Austin",
-            events: ["E Arroyo", "Barton Springs", "Amy's Ice Cream","Rainey Street"],
+            events: ["E Arroyo", "Barton Springs", "Amy's Ice Cream", "Rainey Street"],
             followers: ["Jeff", "Mike", "Susan"],
             url: "https://www.eventwire.com",
             status: "Active",
             user: '5ed6fa6a19daa925f4d273b0'
         },
         {
-            name:"Test Itinerary 2",
+            name: "Test Itinerary 2",
             occasion: "Bachelor Party",
             groupSize: 7,
             startDate: "7-6-20",
@@ -33,36 +33,36 @@ router.get('/seed', (req, res)=>{
             user: '5ed6fa6a19daa925f4d273b0'
         }
 
-    ], (err, data)=>{
+    ], (err, data) => {
         res.redirect('/itinerary');
     })
 });
 
 // Index Route
-router.get('/', (req, res)=>{
-    Itinerary.find({}, (err, foundItineraries)=>{
+router.get('/', (req, res) => {
+    Itinerary.find({}, (err, foundItineraries) => {
         // console.log(__dirname)
         res.json(foundItineraries);
     });
 });
 
 // Show Route
-router.get('/:id', (req, res)=>{
-    Itinerary.findById(req.params.id, req.body, (err, data)=>{
+router.get('/:id', (req, res) => {
+    Itinerary.findById(req.params.id, req.body, (err, data) => {
         res.json(data);
     })
 })
 
 // Create Route
-router.post('/', (req, res)=>{
-    Itinerary.create(req.body, (err, createdItinerary)=>{
+router.post('/', (req, res) => {
+    Itinerary.create(req.body, (err, createdItinerary) => {
         res.json(createdItinerary);
     });
 });
 
 // Put Route
-router.put('/:id', (req, res)=>{
-    Itinerary.findByIdAndUpdate(req.params.id, req.body, (err, data)=>{
+router.put('/:id', (req, res) => {
+    Itinerary.findByIdAndUpdate(req.params.id, req.body, (err, data) => {
         res.json(data);
     })
 })
@@ -71,8 +71,8 @@ router.put('/:id', (req, res)=>{
 
 
 // Delete Route
-router.delete('/:id', (req, res)=>{
-    Itinerary.findByIdAndDelete(req.params.id, (err, deletedItinerary)=>{
+router.delete('/:id', (req, res) => {
+    Itinerary.findByIdAndDelete(req.params.id, (err, deletedItinerary) => {
         res.json(deletedItinerary);
         // res.redirect('/');
     });

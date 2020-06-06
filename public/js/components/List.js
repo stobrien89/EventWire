@@ -78,7 +78,7 @@ class ListItem extends React.Component {
             {item.image_url ? <img draggable="false" className="card-img-top card-img-height" src={item.image_url} alt={item.name} /> : ''}
           </div>
           <div className="card-body d-flex flex-column">
-            <h5 class="card-title"><Link to={`${detailsPage}=${item._id}`}>{item.name}</Link></h5>
+            <h5 class="card-title"><Link to={`${detailsPage}=${item._id}&i=${this.props.itineraryId}`}>{item.name}</Link></h5>
             <p className={`card-text card-text-overflow ${cardTextClass}`}>{short_description}</p>
 
             {/* IF USER IS VIEWING A DESTINATION THEY CAN SEARCH FOR EVENTS */}
@@ -110,7 +110,7 @@ class ListItem extends React.Component {
               </button>
             }
 
-            {/* WHILE VIEWING AN EVENT AND USER LOGGED IN WITH AN ITINERARY THEY CAN ADD THE EVENT TO ITINERARY */}
+            {/* WHILE VIEWING AN EVENT AND USER LOGGED IN WITHOUT AN ITINERARY SEND THEM TO CREATE AN ITINERARY */}
             {listName === 'events' && this.props.isLoggedIn && this.props.itineraryId === '' &&
               <Redirect to='/itinerary' />
             }
@@ -150,11 +150,10 @@ class List extends React.Component {
     // console.log(localStorage.token);
     if (localStorage.getItem('token')) {
       this.setState({ isLoggedIn: true })
-      // return true;
-    } else {
-      this.setState({ isLoggedIn: false })
+      return true;
     }
-    // return false;
+
+    return false;
   }
 
   // updateBaseURL = async (base, url) => {
@@ -172,23 +171,23 @@ class List extends React.Component {
     const index = searchURL.indexOf("&i=");
     if (index > -1) {
       const itineraryId = searchURL.substring(index + 3);
-      console.log(itineraryId);
+      // console.log(itineraryId);
       return itineraryId;
     }
     return '';
   }
 
   getData = (url) => {
-    console.log('url', url);
+    // console.log('url', url);
     const query = this.props.location.search !== '/events' && this.props.location.search !== '/destinations'
       ? this.props.location.search
       : '';
-    console.log('query', query);
+    // console.log('query', query);
     const searchURL = url + query;
-    console.log('searchURL', searchURL);
-    console.log('search', this.props.location.search);
-    console.log('pathname', this.props.location.pathname);
-    console.log('itineraryId', this.parseItineraryID(searchURL));
+    // console.log('searchURL', searchURL);
+    // console.log('search', this.props.location.search);
+    // console.log('pathname', this.props.location.pathname);
+    // console.log('itineraryId', this.parseItineraryID(searchURL));
     fetch(searchURL)
       .then((response) => response.json())
       .then((listItems) => this.setState({
