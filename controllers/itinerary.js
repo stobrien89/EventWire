@@ -41,7 +41,7 @@ router.get('/seed', (req, res)=>{
 // Index Route
 router.get('/', (req, res)=>{
     Itinerary.find({}, (err, foundItineraries)=>{
-        console.log(__dirname)
+        // console.log(__dirname)
         res.json(foundItineraries);
     });
 });
