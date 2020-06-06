@@ -1,11 +1,18 @@
 :root {
   --primary-color: #421b43;
+  --secondary-color: #dc4626;
 }
 
 body {
-    /* background: linear-gradient(180deg, #FFFFFF 0%, rgba(255, 255, 255, 0) 100%), linear-gradient(180deg, #DC4626 0%, rgba(255, 255, 255, 0) 100%), linear-gradient(180deg, #FFFFFF 0%, rgba(255, 255, 255, 0) 100%), linear-gradient(180deg, #FFFFFF 0%, rgba(255, 255, 255, 0) 100%), linear-gradient(180deg, #FFFFFF 0%, rgba(255, 255, 255, 0) 100%), linear-gradient(180deg, #FFFFFF 0%, rgba(255, 255, 255, 0) 100%), linear-gradient(180deg, #FFFFFF 0%, rgba(255, 255, 255, 0) 100%), #F2AE1D; */
-    background: linear-gradient(180deg, #FFFFFF 0%, rgba(255, 255, 255, 0) 100%), linear-gradient(180deg, #DC4626 0%, rgba(255, 255, 255, 0) 100%), linear-gradient(180deg, #FFFFFF 0%, rgba(255, 255, 255, 0) 100%), linear-gradient(180deg, #FFFFFF 0%, rgba(255, 255, 255, 0) 100%), linear-gradient(180deg, #FFFFFF 0%, rgba(255, 255, 255, 0) 100%), linear-gradient(180deg, #FFFFFF 0%, rgba(255, 255, 255, 0) 100%), linear-gradient(180deg, #FFFFFF 0%, rgba(255, 255, 255, 0) 100%), #f2ae1d80;
-    background-repeat: no-repeat;
+  /* background: linear-gradient(180deg, #FFFFFF 0%, rgba(255, 255, 255, 0) 100%), linear-gradient(180deg, #DC4626 0%, rgba(255, 255, 255, 0) 100%), linear-gradient(180deg, #FFFFFF 0%, rgba(255, 255, 255, 0) 100%), linear-gradient(180deg, #FFFFFF 0%, rgba(255, 255, 255, 0) 100%), linear-gradient(180deg, #FFFFFF 0%, rgba(255, 255, 255, 0) 100%), linear-gradient(180deg, #FFFFFF 0%, rgba(255, 255, 255, 0) 100%), linear-gradient(180deg, #FFFFFF 0%, rgba(255, 255, 255, 0) 100%), #F2AE1D; */
+  background: linear-gradient(180deg, #ffffff 0%, rgba(255, 255, 255, 0) 100%),
+    linear-gradient(180deg, #dc4626 0%, rgba(255, 255, 255, 0) 100%),
+    linear-gradient(180deg, #ffffff 0%, rgba(255, 255, 255, 0) 100%),
+    linear-gradient(180deg, #ffffff 0%, rgba(255, 255, 255, 0) 100%),
+    linear-gradient(180deg, #ffffff 0%, rgba(255, 255, 255, 0) 100%),
+    linear-gradient(180deg, #ffffff 0%, rgba(255, 255, 255, 0) 100%),
+    linear-gradient(180deg, #ffffff 0%, rgba(255, 255, 255, 0) 100%), #f2ae1d80;
+  background-repeat: no-repeat;
 }
 
 header {
@@ -98,7 +105,30 @@ p, a {
   font-size: 22px;
 }
 
+.detail_map {
+  font-size: 1.1em;
+  font-weight: bold;
+}
+
 /* END EVENT DETAILS STYLES */
+
+/* BEGIN DESTINATION DETAILS STYLES */
+
+Link,
+a {
+  color: var(--primary-color);
+}
+
+Link:hover,
+a:hover {
+  color: var(--secondary-color);
+}
+
+.expedia {
+  width: 300px;
+  height: 550px;
+}
+/* end DESTINATION DETAILS STYLES */
 
 footer {
   /* 
@@ -139,7 +169,7 @@ h1 {
   margin: 0.75rem 1rem;
 }
 
-.login-form {
+/* .login-form {
   margin-top: 12%;
 }
 
