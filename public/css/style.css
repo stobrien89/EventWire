@@ -57,6 +57,33 @@ header {
 }
 /* END LIST COMPONENT STYLES */
 
+/* BEGIN EVENT DETAILS STYLES */
+
+.details_text {
+  font-size: 1em;
+  line-height: 1.2em;
+}
+
+.details_text i {
+  margin: 5px 10px;
+}
+
+.details_description {
+  width: 34em;
+}
+
+.details_image {
+  height: 225px;
+  width: 80%;
+  max-width: 500px;
+}
+
+.fa-font-size {
+  font-size: 22px;
+}
+
+/* END EVENT DETAILS STYLES */
+
 footer {
   /* 
     position: absolute;
@@ -80,4 +107,24 @@ footer a {
 
 footer .row {
   padding-bottom: 1rem;
+}
+/* 
+* {
+  border: 2px solid red;
+} */
+
+/*  */
+
+h1 {
+  color: #421b43;
+  font-family: agency-fb, sans-serif;
+  font-weight: 700;
+  font-style: normal;
+  display: inline;
+}
+
+#heading-pin {
+  max-height: 3.5rem;
+  padding: 0 0 0.75rem;
+  margin: 0.75rem 1rem;
 }

@@ -17,20 +17,24 @@ class ListItem extends React.Component {
       // window.history.go(url);                // if we use this url must be `/event?d=${item._id}`
 
       this.props.updateBaseURL('events', url)   // if we use this url must be `/events?d=${item._id}`
+    } else {
+      console.log('add to itinerary');
     }
   }
 
   render() {
     const { item, listName } = this.props;
-    let buttonHTML, short_description, cardTextClass;
+    let buttonHTML, short_description, cardTextClass, detailsPage;
 
     if (listName === 'destinations') {
       short_description = item.description;
+      detailsPage = '/destination_details?d';
       buttonHTML = 'Find Events';
       cardTextClass = 'card-text-height-destination';
-    } else {
+    } else { // events
       short_description = this.FirstSentence(item.description);
-      buttonHTML = 'Login to Add';
+      detailsPage = '/event_details?e';
+      buttonHTML = this.props.isLoggedIn ? 'Add to Itinerary' : 'Login to Add';
       cardTextClass = 'card-text-height-event';
     }
 
@@ -41,9 +45,15 @@ class ListItem extends React.Component {
             {item.image_url ? <img draggable="false" className="card-img-top card-img-height" src={item.image_url} alt={item.name} /> : ''}
           </div>
           <div className="card-body d-flex flex-column">
-            <h5 class="card-title">{item.name}</h5>
+            <h5 class="card-title"><Link to={`${detailsPage}=${item._id}`}>{item.name}</Link></h5>
             <p className={`card-text card-text-overflow ${cardTextClass}`}>{short_description}</p>
 
+            {/* WHILE VIEWING AN EVENT A USER CAN SEE THE EVENT DETAILS
+            <Link to='/login' class="mt-auto btn btn-md btn-outline-secondary">
+              View Details
+            </Link> */}
+
+            {/* IF USER IS VIEWING A DESTINATION THEY CAN SEARCH FOR EVENTS */}
             {listName === 'destinations' &&
               <button
                 type="button"
@@ -52,26 +62,28 @@ class ListItem extends React.Component {
               >
                 {buttonHTML}
               </button>
-              // <Link to={`/events?d=${item._id}`} class="mt-auto btn btn-md btn-outline-secondary">
-              //   {buttonHTML}
-              // </Link>
             }
 
-            {listName === 'events' &&
+            {/* WHILE VIEWING AN EVENT AND USER NOT LOGGED IN, SEND USER TO LOGIN PAGE */}
+            {listName === 'events' && !this.props.isLoggedIn &&
               <Link to='/login' class="mt-auto btn btn-md btn-outline-secondary">
                 {buttonHTML}
               </Link>
             }
 
-            {/* 
-            {listName === 'events' &&
-              <Link to='/login' class="mt-auto btn btn-md btn-outline-secondary">
+            {/* WHILE VIEWING AN EVENT AND USER LOGGED IN THEY CAN ADD THE EVENT TO ITINERARY */}
+            {listName === 'events' && this.props.isLoggedIn &&
+              <button
+                type="button"
+                class="mt-auto btn btn-md btn-outline-secondary"
+                onClick={() => { this.handleClick(listName, `/itinerary?e=${item._id}`) }}
+              >
                 {buttonHTML}
-              </Link>
-            } */}
+              </button>
+            }
           </div>
         </div>
-      </div>
+      </div >
     );
   }
 }
@@ -82,10 +94,25 @@ class List extends React.Component {
     listItems: [],
     listName: this.props.location.pathname.substring(1) + 's',
     baseURL: '/' + this.props.location.pathname.substring(1) + 's',
+    isLoggedIn: false
   };
 
   componentDidMount() {
+
+    this.isLoggedIn();
+    // this.updateIsLoggedIn(this.props.isLoggedIn()); // test to see if this will rerender component each time
     this.getData(this.state.baseURL);
+  }
+
+  isLoggedIn = () => {
+    // console.log(localStorage.token);
+    if (localStorage.getItem('token')) {
+      this.setState({ isLoggedIn: true })
+      // return true;
+    } else {
+      this.setState({ isLoggedIn: false })
+    }
+    // return false;
   }
 
   updateBaseURL = async (base, url) => {
@@ -114,19 +141,26 @@ class List extends React.Component {
   }
 
   render() {
+
     const listName = this.state.listName;
     const page_title = listName.toUpperCase();
 
     return (
       <div className="container-fluid container-height">
         <div className="container">
-          <div>
-            <h3 className="page_title">{page_title}</h3>
+          <div className="row text-center">
+            <div className="col-md-12">
+              <img className="img-fluid" id="heading-pin" src="/img/ew_pin.png"></img>
+              <h1>{page_title}</h1>
+            </div>
           </div>
+          {/* <div>
+            <h1 className="page_title">{page_title}</h1>
+          </div> */}
           <div className="row">
             {this.state.listItems.length > 0 &&
               this.state.listItems.map((item, index) => {
-                return <ListItem item={item} key={index} listName={listName} getData={this.getData} updateBaseURL={this.updateBaseURL} />
+                return <ListItem item={item} key={index} listName={listName} getData={this.getData} updateBaseURL={this.updateBaseURL} isLoggedIn={this.state.isLoggedIn} />
               })
             }
           </div>
