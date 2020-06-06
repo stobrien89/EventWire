@@ -17,6 +17,13 @@ class App extends React.Component {
     })
   }
 
+  isLoggedIn = () => {
+    if (this.state.currentUser) {
+      return true
+    }
+    return false
+  }
+
   render() {
     return (
       <div>
@@ -30,7 +37,8 @@ class App extends React.Component {
         <Route path="/itinerary_view" component={ItineraryView} />
         <Route path="/signup" render={props => <SignUpForm handleCurrentUser={this.handleCurrentUser} />} />
         <Route path="/profile" component={UserProfile} />
-
+        <Route path="/event_details" component={Event} />
+        <Route path="/destination_details" />
         <Footer />
       </div>
     )
