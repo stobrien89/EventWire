@@ -10,6 +10,7 @@ const destinationSchema = new mongoose.Schema({
     required: true
   },
   tag: [String],
+  image_url: String,
   image: { data: Buffer, contentType: String },
 })
 
