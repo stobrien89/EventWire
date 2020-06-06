@@ -63,7 +63,8 @@ class Destination extends React.Component {
             </div>
 
             <div className="d-flex flex-column flex-grow-1 ml-auto">
-              <h2>EXPEDIA</h2>
+              {/* <h2>EXPEDIA</h2> */}
+              <div id="searchWidget" className="expedia"><iframe id="widgetIframe" src={`https://www.expedia.com/marketing/widgets/searchform/widget?wtt=1&tp1=7907203&tp2=10479934&lob=H,FH,F,CA&des=${destination.name}&wbi=6&olc=421B43&whf=7&hfc=F2AE1D&wif=4&ifc=&wbc=DC4626&wbf=4&bfc=FFFFFF&wws=2&sfs=H600FW300F&langid=1033`} width="100%" height="100%" scrolling="no" frameBorder="0"></iframe></div>
             </div>
 
           </div>
@@ -74,7 +75,6 @@ class Destination extends React.Component {
           <Redirect to={`/event?d=${destination._id}`} />
         }
       </div>
-
 
     );
   }
