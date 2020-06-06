@@ -46,8 +46,7 @@ class App extends React.Component {
     return (
       <div>
         <NavBar currentUser={this.state.currentUser} handleLogout={this.handleLogout}/>
-        <Feature />
-
+        <Route path="/home" component={Feature}/>
         <Route path="/login" render={props => <LoginForm handleCurrentUser={this.handleCurrentUser} />} />
         <Route path="/destination" component={List} />
         <Route path="/event" component={List} />
