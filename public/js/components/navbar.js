@@ -11,22 +11,22 @@ class NavBar extends React.Component {
                     </button>
                     <div className="collapse navbar-collapse" id="navbarContent">
                         <ul className="navbar-nav ml-auto">
-                            <li className="nav-item">
+                            <li className="nav-item text-primary">
                                 <Link className="nav-link" to="/">HOME<span class="sr-only">(current)</span></Link>
                             </li>
-                            <li className="nav-item">
+                            <li className="nav-item text-primary">
                                 <Link className="nav-link" to="/destination">DESTINATIONS</Link>
                             </li>
-                            <li className="nav-item">
+                            <li className="nav-item text-primary">
                                 <Link className="nav-link" to="/event">EVENTS</Link>
                             </li>
-                            <li className="nav-item">
+                            <li className="nav-item text-primary">
                                 <Link className="nav-link" to="/login">LOGIN</Link>
                             </li>
-                            <li className="nav-item">
+                            <li className="nav-item text-primary">
                                 <Link className="nav-link" to="/itinerary">ITINERARY</Link>
                             </li>
-                            <li className="nav-item">
+                            <li className="nav-item text-primary">
                                 <Link className="nav-link" to={{
                                     pathname: '/signup',
                                     state: { handleCurrentUser: 'hi' }

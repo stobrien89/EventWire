@@ -16,7 +16,7 @@ class Footer extends React.Component {
                     <div className="row text-center">
                         <div className="col-md-12">
                             <div className="copyright">
-                                Copyright © 2020 EventWire
+                                <p>Copyright © 2020 EventWire</p>
                             </div>
                         </div>
                     </div>
