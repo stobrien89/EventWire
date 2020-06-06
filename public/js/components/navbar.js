@@ -11,27 +11,26 @@ class NavBar extends React.Component {
                     </button>
                     <div className="collapse navbar-collapse" id="navbarContent">
                         <ul className="navbar-nav ml-auto">
-                            <li className="nav-item">
+                            <li className="nav-item text-primary">
                                 <Link className="nav-link" to="/">HOME<span className="sr-only">(current)</span></Link>
                             </li>
-                            <li className="nav-item">
+                            <li className="nav-item text-primary">
                                 <Link className="nav-link" to="/destination">DESTINATIONS</Link>
                             </li>
-                            {/* <li className="nav-item">
+                            {/* <li className="nav-item text-primary">
                                 <Link className="nav-link" to="/event">EVENTS</Link>
                             </li> */}
-                            <li className="nav-item">
+                            <li className="nav-item text-primary">
                                 {this.props.currentUser.email ? <a className="nav-link" onClick={this.props.handleLogout}>LOG OUT</a> : <Link className="nav-link" to="/login">LOG IN</Link>}
                             </li>
-                            <li className="nav-item">
+                            <li className="nav-item text-primary">
                                 <Link className="nav-link" to="/itinerary">ITINERARY</Link>
                             </li>
-                            <li className="nav-item">
+                            <li className="nav-item text-primary">
                                 {this.props.currentUser.email ? <Link className="nav-link" to="/profile">PROFILE</Link> : <Link className="nav-link" to="/signup">SIGN UP</Link>}
                             </li>
                         </ul>
                     </div>
-
                 {/* <button type="button" class="btn btn-primary">Primary</button>
                 <button type="button" class="btn btn-secondary">Secondary</button>
                 <p>DELETE THESE BUTTONS</p> */}
