@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const Itinerary = require('../models/itinerary.js');
+const path = require('path');
 
 // Seed
 router.get('/seed', (req, res)=>{
@@ -40,6 +41,7 @@ router.get('/seed', (req, res)=>{
 // Index Route
 router.get('/', (req, res)=>{
     Itinerary.find({}, (err, foundItineraries)=>{
+        console.log(__dirname)
         res.json(foundItineraries);
     });
 });
@@ -72,6 +74,7 @@ router.put('/:id', (req, res)=>{
 router.delete('/:id', (req, res)=>{
     Itinerary.findByIdAndDelete(req.params.id, (err, deletedItinerary)=>{
         res.json(deletedItinerary);
+        // res.redirect('/');
     });
 })
 
