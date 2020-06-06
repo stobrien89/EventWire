@@ -109,7 +109,7 @@ class LoginForm extends React.Component {
                             </div>
                         </div>
                     </div>
-                    {this.state.loggedIn && <Redirect to="/editprofile"/>}
+                    {this.state.loggedIn && <Redirect to="/itinerary"/>}
             </div>
         </div>
         )
