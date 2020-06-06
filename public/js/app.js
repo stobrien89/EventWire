@@ -58,7 +58,7 @@ class App extends React.Component {
         <Route path="/editprofile" render={props => <UserEditForm handleCurrentUser={this.handleCurrentUser} currentUser={this.state.currentUser} handleLogout={this.handleLogout}/>} />
 
         <Route path="/event_details" component={Event} />
-        <Route path="/destination_details" />
+        <Route path="/destination_details" component={Destination} />
         <Footer />
       </div>
     )
