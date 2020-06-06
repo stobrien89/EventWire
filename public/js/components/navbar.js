@@ -17,9 +17,9 @@ class NavBar extends React.Component {
                             <li className="nav-item">
                                 <Link className="nav-link" to="/destination">DESTINATIONS</Link>
                             </li>
-                            <li className="nav-item">
+                            {/* <li className="nav-item">
                                 <Link className="nav-link" to="/event">EVENTS</Link>
-                            </li>Name
+                            </li> */}
                             <li className="nav-item">
                                 {this.props.currentUser.email ? <a className="nav-link" onClick={this.props.handleLogout}>LOG OUT</a> : <Link className="nav-link" to="/login">LOG IN</Link>}
                             </li>
