@@ -15,15 +15,15 @@ class Feature extends React.Component {
                                 <div className="carousel-caption d-none d-sm-block text-right">
                                     <p>Experience the Miami Nightlife!</p>
                                 </div>
-                                <div class="carousel-item">
-                                    <img class="d-block w-100 rounded" src="https://channeloneatlanta.files.wordpress.com/2012/09/nightlife.jpg" height="450px"  alt="Second slide"/>
+                            <div class="carousel-item">
+                                <img class="d-block w-100 rounded" src="https://channeloneatlanta.files.wordpress.com/2012/09/nightlife.jpg" height="450px"  alt="Second slide"/>
+                            </div>
+                            <div class="carousel-item">
+                                <img class="d-block w-100 rounded" src="https://sailo.s3.amazonaws.com/media/events/2019/hornblower-sensation-nyc-statue-2-resized_Mk5shEX.jpg" height="450px" alt="Third slide"/>
+                                <div class="carousel-caption d-none d-sm-block text-right ">
+                                    <p>Dinner Cruise</p>
+                                    <p class="blockquote-footer">New York City, NY</p>
                                 </div>
-                                <div class="carousel-item">
-                                    <img class="d-block w-100 rounded" src="https://sailo.s3.amazonaws.com/media/events/2019/hornblower-sensation-nyc-statue-2-resized_Mk5shEX.jpg" height="450px" alt="Third slide"/>
-                                    <div class="carousel-caption d-none d-sm-block text-right ">
-                                        <p>Dinner Cruise</p>
-                                        <p class="blockquote-footer">New York City, NY</p>
-                                    </div>
                             </div>
                             <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
                                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -33,9 +33,9 @@ class Feature extends React.Component {
                                 <span class="carousel-control-next-icon" aria-hidden="true"></span>
                                 <span class="sr-only">Next</span>
                             </a>
+                            </div>
                         </div>
-                    </div>
-                    <div className="container mt-5">
+                        <div className="container mt-5">
                             <p class="font-weight-bold text-primary">
                                 EventWire, based in Denver, CO, is an event planning company that organize occasions such as birthday parties, bachelor/bachelorette parties, anniversary's, vacations. If you have an event/occasion, we can make it unforgettable!
                             </p>
