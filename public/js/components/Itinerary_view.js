@@ -22,6 +22,14 @@ class ItineraryView extends React.Component{
         super(props);
         this.getData();
     }
+
+makePurchase = (event) => {
+    alert("Thank you for your purchase")
+    this.setState({
+        purchase:true
+    })
+}
+
     render(){
         return(
             <div className="container-fluid container-height">
@@ -64,16 +72,18 @@ class ItineraryView extends React.Component{
                                                     <div className="col-md-4">
                                                         <p>{event.name}</p>
                                                         <p>{event.address.city}</p>
-                                                        {/* <button className="btn btn-primary" onClick={()=>{this.addEvent(event._id, index, this.state.itinerary)}}>Add to my Itinerary</button> */}
                                                     </div>
                                             )
                                         }
                                     }
                                 })}
                        </div>
-                            </div>
+                       <button className="btn btn-primary" onClick={this.makePurchase}> Purchase Your Itinerary</button>
+                    </div>
+                    
             </div>
             </div>
+            {this.state.purchase && <Redirect to='/' />}
             </div>
         )
     }
