@@ -15,12 +15,12 @@ class NavBar extends React.Component {
                                 <Link className="nav-link" to="/">HOME<span class="sr-only">(current)</span></Link>
                             </li>
                             <li className="nav-item">
-                                <Link className="nav-link" to="/destinations">DESTINATIONS</Link>
+                                <Link className="nav-link" to="/destination">DESTINATIONS</Link>
                             </li>
                             <li className="nav-item">
-                                <Link className="nav-link" to="/events">EVENTS</Link>
+                                <Link className="nav-link" to="/event">EVENTS</Link>
                             </li>
-                            <li className="nav-item">                                
+                            <li className="nav-item">
                                 <Link className="nav-link" to="/login">LOGIN</Link>
                             </li>
                             <li className="nav-item">
@@ -29,7 +29,7 @@ class NavBar extends React.Component {
                             <li className="nav-item">
                                 <Link className="nav-link" to={{
                                     pathname: '/signup',
-                                    state: {handleCurrentUser: 'hi'}
+                                    state: { handleCurrentUser: 'hi' }
                                 }}>SIGN UP</Link>
                             </li>
                         </ul>

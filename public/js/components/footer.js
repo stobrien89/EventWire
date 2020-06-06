@@ -1,5 +1,5 @@
 class Footer extends React.Component {
-    render () {
+    render() {
         return (
             <footer className="container-fluid">
                 <div className="container">
@@ -14,12 +14,12 @@ class Footer extends React.Component {
                         </div>
                     </div>
                     <div className="row text-center">
-                        <div className="col-md-12"> 
+                        <div className="col-md-12">
                             <div className="copyright">
                                 Copyright © 2020 EventWire
-                            </div>    
+                            </div>
                         </div>
-                    </div> 
+                    </div>
                 </div>
             </footer>
         )
