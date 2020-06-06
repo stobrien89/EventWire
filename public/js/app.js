@@ -24,6 +24,16 @@ class App extends React.Component {
     return false
   }
 
+  setItinerary = (id) => {
+    this.setState({
+      ...this.state.currentUser, itinerary:id
+    })
+  }
+
+  getItinerary = () => {
+    return this.state.currentUser.itinerary
+  }
+
   render() {
     return (
       <div>
@@ -32,7 +42,7 @@ class App extends React.Component {
         <Route path="/login" render={props => <LoginForm handleCurrentUser={this.handleCurrentUser} />} />
         <Route path="/destination" component={List} />
         <Route path="/event" component={List} />
-        <Route path="/itinerary" component={Itinerary} />
+        <Route path="/itinerary" render={props => <Itinerary currentUser={this.state.currentUser} setItinerary={this.setItinerary}/>} />
         <Route path="/itinerary_events" component={ItineraryEvents} />
         <Route path="/itinerary_view" component={ItineraryView} />
         <Route path="/signup" render={props => <SignUpForm handleCurrentUser={this.handleCurrentUser} />} />

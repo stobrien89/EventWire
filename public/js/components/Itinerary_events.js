@@ -25,7 +25,7 @@ class ItineraryEvents extends React.Component{
 
     addEvent = (event, eventIndex, itinerary) => {
         this.state.itinerary.events.push(event);
-        this.state.events[eventIndex].added = true;
+
         fetch(`/itinerary/${this.state.itinerary._id}`, {
             body: JSON.stringify(itinerary),
             method:'PUT',
@@ -89,7 +89,7 @@ viewItinerary = () =>{
                             <div className="row">
                                 {this.state.events.length > 0 && this.state.events.map((event, index)=>{
 
-                                        if(event.destination_name === this.state.itinerary.destination){
+                                        if(event.destination === this.state.itinerary.destination){
                                             return(
                                                     <div className="col-md-4">
                                                         <p>{event.name}</p>

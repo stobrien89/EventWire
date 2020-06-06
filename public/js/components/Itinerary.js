@@ -56,7 +56,7 @@ handleSubmit = (event) => {
             next:true
 
         })
-
+        this.props.setItinerary(newItinerary._id)
 
     })
 }
@@ -103,7 +103,7 @@ handleDelete = (id, index) => {
                             <option>Select a destination</option>
                             {this.state.destinations.length > 0 && this.state.destinations.map((destination, index) =>{
                                         return(
-                                            <option>{destination.name}</option>
+                                            <option value={destination._id}>{destination.name}</option>
                                         )
                                     })}
                         </select>
@@ -146,7 +146,7 @@ handleDelete = (id, index) => {
                         </tbody>
                     </table>
                 </div>
-                {this.state.next && <Redirect to={`/itinerary_events?i=${this.state.newItinerary}`} />}
+                {this.state.next && <Redirect to={`/itinerary_view?i=${this.state.newItinerary}`} />}
             </div>
 
         )
