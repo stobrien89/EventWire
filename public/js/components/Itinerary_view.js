@@ -30,6 +30,12 @@ makePurchase = (event) => {
     })
 }
 
+editItinerary=(itinerary)=>{
+    this.setState({
+        edit:true
+    })
+}
+
     render(){
         return(
             <div className="container-fluid container-height">
@@ -79,11 +85,13 @@ makePurchase = (event) => {
                                 })}
                        </div>
                        <button className="btn btn-primary" onClick={this.makePurchase}> Purchase Your Itinerary</button>
+                       <button className="btn btn-primary" onClick={()=>{this.editItinerary(this.state.itinerary)}}> Edit Your Itinerary</button>
                     </div>
                     
             </div>
             </div>
             {this.state.purchase && <Redirect to='/' />}
+            {this.state.edit && <Redirect to={`/itinerary_edit?i=${this.state.itinerary._id}`} />}
             </div>
         )
     }
