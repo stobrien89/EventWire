@@ -139,7 +139,7 @@ handleDelete = (id, index) => {
                                         <th scope="row">{itinerary.name}</th>
                                         <td>{itinerary.occasion}</td>
                                         <td>{itinerary.destination}</td>
-                                        <td><button onClick={()=>this.handleDelete(itinerary._id, index)}>Delete</button></td>
+                                        <td><button className="btn btn-secondary" onClick={()=>this.handleDelete(itinerary._id, index)}>Delete</button></td>
                                     </tr>
                                 )
                             })}
