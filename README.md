@@ -50,6 +50,7 @@ General App Idea/Purpose: An app that allows me to.
     -Shopping Cart (Itinerary)
     -Working Contact Links
 
+
 ## Product Screenshots
 ![Site Landing Page](https://trello-attachments.s3.amazonaws.com/5edbc491564f8b2f9c617e53/1115x916/a5642e93d2b966f8ff3ff6fa874c9d65/Screen_Shot_2020-06-06_at_12.46.22_PM.png)
 
@@ -63,6 +64,13 @@ General App Idea/Purpose: An app that allows me to.
 https://trello-attachments.s3.amazonaws.com/5ed292d81874405536f54236/5edbc491564f8b2f9c617e53/b6b6e9eae6dc90bb71364673552995be/Screen_Shot_2020-06-06_at_11.04.47_AM.png)
 
 ![Destination Details Page](https://trello-attachments.s3.amazonaws.com/5edbc491564f8b2f9c617e53/1121x916/bbc1c0d97cd018f729a2c1840c6f98ac/Screen_Shot_2020-06-06_at_12.37.58_PM.png)
+
+
+## Mobile Screenshots
+![Mobile Version](https://trello-attachments.s3.amazonaws.com/5edbc491564f8b2f9c617e53/485x916/47dc8b2f95b587529f1d600c85e544ac/Screen_Shot_2020-06-06_at_1.06.32_PM.png)
+
+![Mobile Navigation](https://trello-attachments.s3.amazonaws.com/5edbc491564f8b2f9c617e53/485x916/2d060f7bab3edd9e631be700cb9995ff/Screen_Shot_2020-06-06_at_1.06.44_PM.png)
+
 
 ## Wireframes
 ![Home](https://trello-attachments.s3.amazonaws.com/5ed5c4a06abe6e41827697fd/1152x700/a92272eba09c26558430d2d81219977f/EventWire_Home.png)
