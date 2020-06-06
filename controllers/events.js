@@ -127,23 +127,23 @@ router.get('/', (req, res) => {
 // test: curl http://localhost:3000/event
 
 // // SEED
-// router.get('/seed', (req, res) => {
-//   Events.create(seedData, (err, data) => {
-//     data.map((event) => {
-//       Destinations.find({ name: event.destination_name }, (err, foundDestination) => {
-//         return foundDestination;
-//       }).then((foundDestination) => {
-//         Events.findByIdAndUpdate(
-//           event._id,
-//           { $set: { destination: foundDestination[0]._id } },
-//           { new: true },
-//           (err, updatedEvent) => { }
-//         )
-//       })
-//     })
-//     res.redirect('/events');
-//   })
-// });
+router.get('/seed', (req, res) => {
+  Events.create(seedData, (err, data) => {
+    data.map((event) => {
+      Destinations.find({ name: event.destination_name }, (err, foundDestination) => {
+        return foundDestination;
+      }).then((foundDestination) => {
+        Events.findByIdAndUpdate(
+          event._id,
+          { $set: { destination: foundDestination[0]._id } },
+          { new: true },
+          (err, updatedEvent) => { }
+        )
+      })
+    })
+    res.redirect('/events');
+  })
+});
 
 // SHOW
 router.get('/:id', (req, res) => {

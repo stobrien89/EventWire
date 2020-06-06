@@ -2,7 +2,8 @@
 class Itinerary extends React.Component {
 state = {
     itinerary:[],
-    startDate: new Date()
+    destinations:[]
+    // startDate: new Date()
 }
 
 
@@ -11,6 +12,10 @@ getData = () => {
     fetch('/itinerary')
     .then(response => response.json())
     .then (data => this.setState({itinerary:data}))
+    fetch('/destinations')
+    .then(response => response.json())
+    .then (data => this.setState({destinations:data}))
+
 }
 
 componentDidMount(){
@@ -45,8 +50,12 @@ handleSubmit = (event) => {
             occasion:'',
             destination:'',
             startDate:'',
-            endDate:''
+            endDate:'',
+            newItinerary: newItinerary._id,
+            next:true
         })
+
+
     })
 }
 
@@ -67,9 +76,14 @@ handleDelete = (id, index) => {
     render(){
         const groupSizeOptions = [1,2,3,4,5];
         return(
-            <div className="container-fluid">
+            <div className="container-fluid container-height">
                 <div className="container">
-                    <h1>Itinerary</h1>
+                    <div className="row text-center">
+                        <div className="col-md-12">
+                            <img className="img-fluid" id="heading-pin" src="/img/ew_pin.png"></img>
+                            <h1>Itinerary</h1>
+                        </div>
+                    </div>
                     <form onSubmit={this.handleSubmit}>
                     <div className="form-group row">
                         <div className="col-md-6">
@@ -85,14 +99,11 @@ handleDelete = (id, index) => {
                         <label htmlFor="destination">Destination</label>
                         <select className="form-control" value={this.state.destination} onChange={this.handleChange} id="destination">
                             <option>Select a destination</option>
-                            <option>Austin, TX</option>
-                            <option>Nashville, TN</option>
-                            <option>San Diego, CA</option>
-                            <option>Las Vegas, NV</option>
-                            <option>New York City, NY</option>
-                            <option>Miami, FL</option>
-                            <option>Atlanta, GA</option>
-                            <option>Chicago, IL</option>
+                            {this.state.destinations.length > 0 && this.state.destinations.map((destination, index) =>{
+                                        return(
+                                            <option>{destination.name}</option>
+                                        )
+                                    })}
                         </select>
                     </div>
                     <div className="form-group">
@@ -116,10 +127,8 @@ handleDelete = (id, index) => {
                             <input className="form-control" placeholder="add your end date" type="text" value={this.state.endDate} onChange={this.handleChange} id="endDate" />
                         </div>
                     </div>
-                    {/* <DatePicker selected={this.state.startDate} onChange={this.handleChange} /> */}
-                    <button type="submit" class="btn btn-primary">Save your Itinerary</button>
+                    <button type="submit" class="btn btn-primary btn-main">Next - Pick your Events</button>
                 </form>
-                
                     <table class="table">
                         <tbody>
                             {this.state.itinerary.length > 0 && this.state.itinerary.map((itinerary, index) =>{
@@ -135,7 +144,9 @@ handleDelete = (id, index) => {
                         </tbody>
                     </table>
                 </div>
+                {this.state.next && <Redirect to={`/itinerary_events?i=${this.state.newItinerary}`} />}
             </div>
+
         )
     }
 }
