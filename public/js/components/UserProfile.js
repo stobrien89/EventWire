@@ -5,8 +5,14 @@ class UserProfile extends React.Component {
 
         return (
             <div className="container-fluid container-height">
-                <div className="container emp-profile">
-                <form method="post">
+                <div className="container user-profile">
+                <div className="row text-center profile-header">
+                        <div className="col-md-12">
+                            <img className="img-fluid" id="heading-pin" src="/img/ew_pin.png"></img>
+                            <h1>Profile</h1>
+                        </div>
+                </div>
+                <div className="profile-content">
                     <div className="row">
                         <div className="col-md-4">
                             <div className="profile-img">
@@ -25,7 +31,7 @@ class UserProfile extends React.Component {
                                         <h6>
                                             Some description?
                                         </h6>
-                                        <p className="proile-rating">Some other info</p>
+                                        <p className="profile-rating">Some other info</p>
                                 <ul className="nav nav-tabs" id="myTab" role="tablist">
                                     <li className="nav-item">
                                         <a className="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">About</a>
@@ -37,22 +43,17 @@ class UserProfile extends React.Component {
                             </div>
                         </div>
                         <div className="col-md-2">
-                            <button className="profile-edit-btn" name="btnAddMore" value="Edit Profile"><Link  to="/editprofile">Edit Profile</Link></button>
+                            <button className="btn btn-secondary" value="Edit Profile"><Link  to="/editprofile">Edit Profile</Link></button>
                         </div>
                     </div>
                     <div className="row">
                         <div class="col-md-4">
                                 <div class="profile-work">
-                                    <p>WORK LINK</p>
-                                    <a href="">Website Link</a><br/>
-                                    <a href="">Bootsnipp Profile</a><br/>
-                                    <a href="">Bootply Profile</a>
-                                    <p>SKILLS</p>
-                                    <a href="">Web Designer</a><br/>
-                                    <a href="">Web Developer</a><br/>
-                                    <a href="">WordPress</a><br/>
-                                    <a href="">WooCommerce</a><br/>
-                                    <a href="">PHP, .Net</a><br/>
+                                    <h6>Joined on date</h6>
+                                    <p>Join date</p>
+                                    {/* <p>{currentUser.createdAt.toLocaleDateString('en-US')}</p> */}
+                                    <h6>Completed Itineraries</h6>
+                                    <p>Itinerary details</p>
                                 </div>
                             </div>
                         <div className="col-md-8">
@@ -175,7 +176,7 @@ class UserProfile extends React.Component {
                             </div>
                         </div>
                     </div>
-                </form>           
+                </div>           
             </div>
         </div>
         )
