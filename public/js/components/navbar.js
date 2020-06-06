@@ -4,12 +4,15 @@ class NavBar extends React.Component {
             <header className="container-fluid">
                 <nav className="navbar navbar-expand-lg navbar-light navbar-custom container">
                     <a className="navbar-brand" href="#">
-                        <img src="https://trello-attachments.s3.amazonaws.com/5ed3f1e62bc09e6802c9d686/1000x305/7f03e0c29137fe583cebe990d0f287bf/ew-wordmark-p%401000x.png" width="250px" height="100px" alt=""/>
+                        <img src="/img/eventWire-logos/1000w/ew-logo-p-notag@1000x.png" width="300px" height="100px" alt=""/>
                     </a>
-                    <div className="collapse navbar-collapse">
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarContent">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div className="collapse navbar-collapse" id="navbarContent">
                         <ul className="navbar-nav ml-auto">
                             <li className="nav-item">
-                                <Link className="nav-link" to="/">HOME</Link>
+                                <Link className="nav-link" to="/">HOME<span class="sr-only">(current)</span></Link>
                             </li>
                             <li className="nav-item">
                                 <Link className="nav-link" to="/destinations">DESTINATIONS</Link>
@@ -31,6 +34,10 @@ class NavBar extends React.Component {
                             </li>
                         </ul>
                     </div>
+
+                {/* <button type="button" class="btn btn-primary">Primary</button>
+                <button type="button" class="btn btn-secondary">Secondary</button>
+                <p>DELETE THESE BUTTONS</p> */}
                 </nav>
             </header>
         )

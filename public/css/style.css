@@ -1,24 +1,21 @@
 header {
-    /* background-color: #421B43;
-    background-image: none;
-    background-repeat: no-repeat; */
-    background: linear-gradient(180deg, #421B43 0%, 
-        rgba(66, 27, 67, 0) 83.85%), 
-        linear-gradient(180deg, #FFFFFF 0%, 
-        rgba(255, 255, 255, 0) 100%), #FFFFFF;
+    background: linear-gradient(180deg, #421B43 0%,
+                rgba(66, 27, 67, 0) 83.85%),
+                linear-gradient(180deg, #FFFFFF 0%,
+                rgba(255, 255, 255, 0) 100%),
+                #FFFFFF;
 }
 
 footer {
     position: absolute;
     bottom: 0;
-    /* width: 1080px; */
-    /* height: 220px; */
     padding: 20px 0 0;
     line-height: 1rem;
-    background: linear-gradient(180deg, #FFFFFF 0%, 
-        rgba(255, 255, 255, 0) 100%), 
-        linear-gradient(180deg, #FFFFFF 0%, 
-        rgba(255, 255, 255, 0) 100%), #421B43;
+    background: linear-gradient(180deg, #FFFFFF 0%,
+                rgba(255, 255, 255, 0) 100%),
+                linear-gradient(180deg, #FFFFFF 0%,
+                rgba(255, 255, 255, 0) 100%),
+                #421B43;
 }
 
 footer a {
@@ -27,4 +24,10 @@ footer a {
 
 footer .row {
         padding-bottom: 1rem;
+}
+
+body {
+    /* background: linear-gradient(180deg, #FFFFFF 0%, rgba(255, 255, 255, 0) 100%), linear-gradient(180deg, #DC4626 0%, rgba(255, 255, 255, 0) 100%), linear-gradient(180deg, #FFFFFF 0%, rgba(255, 255, 255, 0) 100%), linear-gradient(180deg, #FFFFFF 0%, rgba(255, 255, 255, 0) 100%), linear-gradient(180deg, #FFFFFF 0%, rgba(255, 255, 255, 0) 100%), linear-gradient(180deg, #FFFFFF 0%, rgba(255, 255, 255, 0) 100%), linear-gradient(180deg, #FFFFFF 0%, rgba(255, 255, 255, 0) 100%), #F2AE1D; */
+    background: linear-gradient(180deg, #FFFFFF 0%, rgba(255, 255, 255, 0) 100%), linear-gradient(180deg, #DC4626 0%, rgba(255, 255, 255, 0) 100%), linear-gradient(180deg, #FFFFFF 0%, rgba(255, 255, 255, 0) 100%), linear-gradient(180deg, #FFFFFF 0%, rgba(255, 255, 255, 0) 100%), linear-gradient(180deg, #FFFFFF 0%, rgba(255, 255, 255, 0) 100%), linear-gradient(180deg, #FFFFFF 0%, rgba(255, 255, 255, 0) 100%), linear-gradient(180deg, #FFFFFF 0%, rgba(255, 255, 255, 0) 100%), #f2ae1d80;
+    background-repeat: no-repeat;
 }

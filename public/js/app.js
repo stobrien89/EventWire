@@ -23,7 +23,8 @@ class App extends React.Component{
     render() {
         return(
         <div>
-            <NavBar/>
+            <NavBar />
+            <Feature />
 
             <Route path="/login" render={props => <LoginForm handleCurrentUser={this.handleCurrentUser}/>} />
             <Route path="/destinations"  />
