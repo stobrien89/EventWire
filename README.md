@@ -38,6 +38,17 @@ General App Idea/Purpose: An app that allows me to.
     -HTML
     -CSS
     -Figma (Wireframes)
+    
+## Features
+    -Authentication
+    -Related Models
+    -Customized Bootstrap
+    -Responsive Design
+    -Collapsible Navigation
+    -Working Map link to Google for Directions
+    -Working Expedia Widget
+    -Shopping Cart (Itinerary)
+    -Working Contact Links
 
 ## Wireframes
 ![Home](https://trello-attachments.s3.amazonaws.com/5ed5c4a06abe6e41827697fd/1152x700/a92272eba09c26558430d2d81219977f/EventWire_Home.png)
@@ -56,3 +67,16 @@ General App Idea/Purpose: An app that allows me to.
 
 ![User_Landing_Page](https://trello-attachments.s3.amazonaws.com/5ed292d81874405536f54236/5ed5c4a06abe6e41827697fd/2c91eac6ba1f9cb433dae7d0f999f9c3/User_Landing_Page.png)
 
+## Product Screenshots
+![Site Landing Page](https://trello-attachments.s3.amazonaws.com/5edbc491564f8b2f9c617e53/1115x916/a5642e93d2b966f8ff3ff6fa874c9d65/Screen_Shot_2020-06-06_at_12.46.22_PM.png)
+
+![Login Page](https://trello-attachments.s3.amazonaws.com/5edbc491564f8b2f9c617e53/1115x916/086986a75218c91d4115085f22a67cdf/Screen_Shot_2020-06-06_at_12.46.09_PM.png)
+
+![Create Itinerary](https://trello-attachments.s3.amazonaws.com/5edbc491564f8b2f9c617e53/1115x916/7688aac9de8a08ca5e5479baef35d7c5/Screen_Shot_2020-06-06_at_12.46.50_PM.png)
+
+![Destinations Search Page](https://trello-attachments.s3.amazonaws.com/5ed292d81874405536f54236/5edbc491564f8b2f9c617e53/91fdebdbd06084cd840ceeac208f4618/Screen_Shot_2020-06-06_at_12.27.08_PM.png)
+
+![Event Details Page](
+https://trello-attachments.s3.amazonaws.com/5ed292d81874405536f54236/5edbc491564f8b2f9c617e53/b6b6e9eae6dc90bb71364673552995be/Screen_Shot_2020-06-06_at_11.04.47_AM.png)
+
+![Destination Details Page](https://trello-attachments.s3.amazonaws.com/5edbc491564f8b2f9c617e53/1121x916/bbc1c0d97cd018f729a2c1840c6f98ac/Screen_Shot_2020-06-06_at_12.37.58_PM.png)
