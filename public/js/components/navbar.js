@@ -3,7 +3,7 @@ class NavBar extends React.Component {
         return (
             <header className="container-fluid">
                 <nav className="navbar navbar-expand-lg navbar-light navbar-custom container">
-                    <a className="navbar-brand" href="#">
+                    <a className="navbar-brand" href="/home">
                         <img src="/img/eventWire-logos/1000w/ew-logo-p-notag@1000x.png" width="300px" height="100px" alt=""/>
                     </a>
                     <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarContent">
@@ -12,14 +12,11 @@ class NavBar extends React.Component {
                     <div className="collapse navbar-collapse" id="navbarContent">
                         <ul className="navbar-nav ml-auto">
                             <li className="nav-item text-primary">
-                                <Link className="nav-link" to="/">HOME<span className="sr-only">(current)</span></Link>
+                                <Link className="nav-link" to="/home">HOME<span className="sr-only">(current)</span></Link>
                             </li>
                             <li className="nav-item text-primary">
                                 <Link className="nav-link" to="/destination">DESTINATIONS</Link>
                             </li>
-                            {/* <li className="nav-item text-primary">
-                                <Link className="nav-link" to="/event">EVENTS</Link>
-                            </li> */}
                             <li className="nav-item text-primary">
                                 {this.props.currentUser.email ? <a className="nav-link" onClick={this.props.handleLogout}>LOG OUT</a> : <Link className="nav-link" to="/login">LOG IN</Link>}
                             </li>

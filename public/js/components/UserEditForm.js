@@ -229,7 +229,7 @@ class UserEditForm extends React.Component {
                                     </div>
                                 </form>
                                 {this.state.update && <Redirect to="/profile"/>}
-                                {this.state.delete && <Redirect to="/"/>}
+                                {this.state.delete && <Redirect to="/home"/>}
                             </div>
 
                         </div>
