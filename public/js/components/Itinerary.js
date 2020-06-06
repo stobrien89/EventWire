@@ -34,7 +34,8 @@ handleSubmit = (event) => {
             occasion: this.state.occasion,
             destination: this.state.destination,
             startDate: this.state.startDate,
-            endDate: this.state.endDate
+            endDate: this.state.endDate,
+            groupSize: this.state.groupSize
         }),
         method:'POST',
         headers: {
@@ -53,6 +54,7 @@ handleSubmit = (event) => {
             endDate:'',
             newItinerary: newItinerary._id,
             next:true
+
         })
 
 
@@ -81,7 +83,7 @@ handleDelete = (id, index) => {
                     <div className="row text-center">
                         <div className="col-md-12">
                             <img className="img-fluid" id="heading-pin" src="/img/ew_pin.png"></img>
-                            <h1>Itinerary</h1>
+                            <h1>Create Your Itinerary</h1>
                         </div>
                     </div>
                     <form onSubmit={this.handleSubmit}>

@@ -27,6 +27,7 @@ class App extends React.Component {
         <Route path="/event" component={List} />
         <Route path="/itinerary" component={Itinerary} />
         <Route path="/itinerary_events" component={ItineraryEvents} />
+        <Route path="/itinerary_view" component={ItineraryView} />
         <Route path="/signup" render={props => <SignUpForm handleCurrentUser={this.handleCurrentUser} />} />
         <Route path="/profile" component={UserProfile} />
 

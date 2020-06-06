@@ -40,7 +40,7 @@ app.use('/destinations', destinationController);
 app.use('/itinerary', itineraryController);
 app.use('/events', eventController);
 app.get('*', (req, res)=>{
-	res.sendFile(path.join(`${__dirname}/public/index.html`))
+    res.sendFile(path.join(`${__dirname}/public/index.html`))
 })
 
 //Listener

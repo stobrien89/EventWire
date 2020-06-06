@@ -1,5 +1,4 @@
-class ItineraryEvents extends React.Component{
-
+class ItineraryView extends React.Component{
     state ={
         itinerary:[],
         destination:[],
@@ -19,40 +18,10 @@ class ItineraryEvents extends React.Component{
         .then(events => this.setState({events:events}))
     }
 
-    componentDidMount(){
+    constructor(props){
+        super(props);
         this.getData();
     }
-
-    addEvent = (event, eventIndex, itinerary) => {
-        this.state.itinerary.events.push(event);
-        this.state.events[eventIndex].added = true;
-        fetch(`/itinerary/${this.state.itinerary._id}`, {
-            body: JSON.stringify(itinerary),
-            method:'PUT',
-            headers: {
-                'Accept': 'application/json, text/plain, */*',
-                'Content-Type': 'application/json'
-            }
-        })
-        .then(response => response.json())
-        .then(itinerary => {
-            this.setState({
-                itinerary:[itinerary, ...this.state.itinerary]
-
-            })
-            this.getData();
-        })
-    }
-
-viewItinerary = () =>{
-    this.setState({
-        id : this.state.itinerary._id,
-        next : true
-    })
-}
-
-
-
     render(){
         return(
             <div className="container-fluid container-height">
@@ -88,31 +57,23 @@ viewItinerary = () =>{
                             <h3>Events</h3>
                             <div className="row">
                                 {this.state.events.length > 0 && this.state.events.map((event, index)=>{
-
-                                        if(event.destination_name === this.state.itinerary.destination){
+                                    for (let i=0; i<this.state.itinerary.events.length; i++){
+                                        if(event._id === this.state.itinerary.events[i]){
                                             return(
                                                     <div className="col-md-4">
                                                         <p>{event.name}</p>
                                                         <p>{event.address.city}</p>
-                                                        <button className="btn btn-primary" onClick={()=>{this.addEvent(event._id, index, this.state.itinerary)}}>Add to my Itinerary</button>
+                                                        {/* <button className="btn btn-primary" onClick={()=>{this.addEvent(event._id, index, this.state.itinerary)}}>Add to my Itinerary</button> */}
                                                     </div>
                                             )
                                         }
+                                    }
                                 })}
+                       </div>
                             </div>
-                            <div className="row">
-                                <div className="col-md-8"></div>
-                                <div className="col-md-4">
-                                    <button className="btn" onClick={this.viewItinerary}>view completed itinerary</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                {this.state.next && <Redirect to={`/itinerary_view?i=${this.state.id}`} />}
+            </div>
+            </div>
             </div>
         )
     }
 }
-
-
