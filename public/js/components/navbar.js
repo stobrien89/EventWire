@@ -4,7 +4,7 @@ class NavBar extends React.Component {
             <header className="container-fluid">
                 <nav className="navbar navbar-expand-lg navbar-light navbar-custom container">
                     <a className="navbar-brand" href="/home">
-                        <img src="/img/eventWire-logos/1000w/ew-logo-p-notag@1000x.png" width="300px" height="100px" alt=""/>
+                        <img src="/img/eventWire-logos/1000w/ew-logo-p-notag@1000x.png" width="300px" height="100px" alt="" />
                     </a>
                     <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarContent">
                         <span className="navbar-toggler-icon"></span>

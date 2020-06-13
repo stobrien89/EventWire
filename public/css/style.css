@@ -26,11 +26,16 @@ header {
     linear-gradient(180deg, #ffffff 0%, rgba(255, 255, 255, 0) 100%), #ffffff;
 }
 
-p, a {
+p,
+a {
   font-family: agency-fb, sans-serif;
   font-weight: 400;
   font-style: normal;
   font-size: large;
+}
+
+.nav-link {
+  cursor: pointer;
 }
 
 /* LIST COMPONENT STYLES */
@@ -58,12 +63,9 @@ p, a {
   overflow: auto;
 }
 
+.card-text-height-destination,
 .card-text-height-event {
   height: 3rem;
-}
-
-.card-text-height-destination {
-  height: 17rem;
 }
 
 .list-item {
@@ -75,6 +77,7 @@ p, a {
   background-color: var(--primary-color);
   color: whitesmoke;
 }
+
 /* END LIST COMPONENT STYLES */
 
 /* BEGIN EVENT DETAILS STYLES */
