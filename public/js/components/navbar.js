@@ -28,9 +28,6 @@ class NavBar extends React.Component {
                             </li>
                         </ul>
                     </div>
-                {/* <button type="button" class="btn btn-primary">Primary</button>
-                <button type="button" class="btn btn-secondary">Secondary</button>
-                <p>DELETE THESE BUTTONS</p> */}
                 </nav>
             </header>
         )
