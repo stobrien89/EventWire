@@ -98,12 +98,24 @@ class Event extends React.Component {
     // console.log(loggedIn);
     // get the path from the browser address bar and only keep the id
     const id = this.parseEventID(this.props.location.search);
+    const itineraryId = this.parseItineraryID(this.props.location.search);
 
     //this.props.location.search.substring(3);
     // use the id to fetch the event from the EVENTS API
     fetch('/events/' + id)
       .then((response) => response.json())
       .then((event) => {
+
+        if (itineraryId !== '') {
+          console.log('itinerary found');
+          fetch('/itinerary/' + itineraryId)
+            .then((response) => response.json())
+            .then((itinerary) => {
+              console.log(itinerary.name);
+              this.setState({ itineraryId: itineraryId, itinerary: itinerary })
+            })
+        }
+
         this.setState({ event: event, address: event.address, contact: event.contact, isLoggedIn: loggedIn })
       })
   }
