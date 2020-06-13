@@ -34,12 +34,12 @@ class ItineraryEdit extends React.Component{
     handleUpdate = (event) => {
         event.preventDefault();
         const updatedItinerary ={
-            name: this.state.itinerary.nameEdit,
-            occasion: this.state.itinerary.occasionEdit,
-            destination: this.state.itinerary.destinationEdit,
-            startDate: this.state.itinerary.startDateEdit,
-            endDate: this.state.itinerary.endDateEdit,
-            groupSize: this.state.itinerary.groupSizeEdit
+            name: this.state.nameEdit,
+            occasion: this.state.occasionEdit,
+            destination: this.state.destinationEdit,
+            startDate: this.state.startDateEdit,
+            endDate: this.state.endDateEdit,
+            groupSize: this.state.groupSizeEdit
         }
         
         fetch(`/itinerary/${this.state.itinerary._id}`, {
