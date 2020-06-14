@@ -29,7 +29,7 @@ class App extends React.Component {
       currentUser: {}
     })
     localStorage.clear();
-    this.props.history.push('/honme')
+    this.props.history.push('/home')
   }
 
   setItinerary = (id) => {

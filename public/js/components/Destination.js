@@ -1,6 +1,7 @@
 class Destination extends React.Component {
   state = {
     destination: {},
+    itineraryId: '',
     next: false
   }
 
@@ -9,16 +10,17 @@ class Destination extends React.Component {
     // console.log('pathname', this.props.location.pathname);
 
     // get the path from the browser address bar and only keep the id
-    const id = this.props.location.search.substring(3);
-    // console.log('/destinations/' + id);
+    const destinationId = parseDestinationID(this.props.location.search);
+    const itineraryId = parseItineraryID(this.props.location.search);
 
     // use the id to fetch the destination from the DESTINATIONS API
-    fetch('/destinations/' + id)
+    fetch('/destinations/' + destinationId)
       .then((response) => response.json())
       .then((destination) => {
-        this.setState({ destination: destination })
+        this.setState({ destination: destination, itineraryId: itineraryId })
 
       })
+      .catch((error) => console.log(error));
   }
 
   componentDidMount() {
@@ -31,6 +33,17 @@ class Destination extends React.Component {
 
   render() {
     const destination = this.state.destination;
+    let eventLink;
+
+    // create event link 
+    if (this.state.itineraryId !== '') {
+      // if itinerary is avail
+      eventLink = `/event?d=${destination._id}&i=${this.state.itineraryId}`;
+    } else {
+      // if no itinerary is avail
+      eventLink = `/event?d=${destination._id}`;
+    }
+
 
     return (
       <div className="container-fluid container-height">
@@ -72,8 +85,9 @@ class Destination extends React.Component {
         </div>
 
         {this.state.next &&
-          <Redirect to={`/event?d=${destination._id}`} />
+          <Redirect to={eventLink} />
         }
+
       </div>
 
     );

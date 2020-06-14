@@ -8,37 +8,6 @@ class Event extends React.Component {
     itinerary: []
   }
 
-  isLoggedIn = () => {
-    // console.log(localStorage.token);
-    // if (localStorage.getItem('token')) {
-    //   this.setState({ isLoggedIn: true })
-    //   return true;
-    // }
-    return this.state.isLoggedIn;
-  }
-
-  parseEventID = (searchURL) => {
-    const indexE = searchURL.indexOf("?e=");
-    const indexI = searchURL.indexOf("&i=");
-    // console.log(indexI);
-    if (indexE > -1) {
-      const eventId = indexI > -1 ? searchURL.substring(indexE + 3, indexI) : searchURL.substring(indexE + 3);
-      // console.log(eventId);
-      return eventId;
-    }
-    return '';
-  }
-
-  parseItineraryID = (searchURL) => {
-    const index = searchURL.indexOf("&i=");
-    if (index > -1) {
-      const itineraryId = searchURL.substring(index + 3);
-      // console.log(itineraryId);
-      return itineraryId;
-    }
-    return '';
-  }
-
   updateItinerary = (id, url) => {
     fetch('/itinerary/' + id)
       .then((response) => response.json())
@@ -57,9 +26,6 @@ class Event extends React.Component {
         })
           .then(response => response.json())
           .then(itinerary => {
-            // this.setState({
-            //   itinerary: itinerary
-            // })
             this.setState({ nextURL: url });
           })
       })
@@ -73,71 +39,70 @@ class Event extends React.Component {
     this.updateItinerary(this.state.itineraryId, url);
   }
 
-  getItineraryData = () => {
-    // get the path from the browser address bar and only keep the id
-    const itineraryId = this.parseItineraryID(this.props.location.search);
-    // console.log('/events/' + id);
-    if (itineraryId !== '') {
-      console.log('itinerary found');
-      fetch('/itinerary/' + itineraryId)
-        .then((response) => response.json())
-        .then((itinerary) => {
-          console.log(itinerary.name);
-          this.setState({ itineraryId: itineraryId, itinerary: itinerary })
-        })
-    }
-  }
-
   getData = () => {
-    // console.log('search', this.props.location.search);
-    // console.log('pathname', this.props.location.pathname);
-    // console.log('parse', this.parseItineraryID(this.props.location.search));
-    // console.log('parseEventID', this.parseEventID(this.props.location.search));
-    // console.log(localStorage.getItem('token'));
-    const loggedIn = localStorage.getItem('token') ? true : false;
-    // console.log(loggedIn);
-    // get the path from the browser address bar and only keep the id
-    const id = this.parseEventID(this.props.location.search);
-    const itineraryId = this.parseItineraryID(this.props.location.search);
 
-    //this.props.location.search.substring(3);
+    let foundEvent;
+    let foundItinerary;
+    const loggedIn = isUserLoggedIn();
+
+    // get the path from the browser address bar and only keep the id
+    const eventId = parseEventID(this.props.location.search);
+    const itineraryId = parseItineraryID(this.props.location.search);
+
     // use the id to fetch the event from the EVENTS API
-    fetch('/events/' + id)
+    fetch('/events/' + eventId)
       .then((response) => response.json())
       .then((event) => {
-
+        foundEvent = event;
         if (itineraryId !== '') {
           console.log('itinerary found');
-          fetch('/itinerary/' + itineraryId)
-            .then((response) => response.json())
-            .then((itinerary) => {
-              console.log(itinerary.name);
-              this.setState({ itineraryId: itineraryId, itinerary: itinerary })
-            })
+          return fetch('/itinerary/' + itineraryId);
         }
-
-        this.setState({ event: event, address: event.address, contact: event.contact, isLoggedIn: loggedIn })
+        // this.setState({ event: event, address: event.address, contact: event.contact, isLoggedIn: loggedIn })
       })
+      .then((response) => {
+        if (response !== undefined) {
+          response.json()
+        }
+      })
+      .then((itinerary) => {
+        foundItinerary = itinerary !== undefined ? itinerary : [];
+        // console.log(foundItinerary);
+        this.setState({
+          isLoggedIn: loggedIn,
+          event: foundEvent, address: foundEvent.address, contact: foundEvent.contact,
+          itineraryId: itineraryId, itinerary: foundItinerary
+        })
+      })
+      .catch((error) => console.log(error));
   }
 
   componentDidMount() {
-    // this.isLoggedIn();
     this.getData();
-    this.getItineraryData();
   }
 
   render() {
     const event = this.state.event;
+    let destinationLink;
+
+    // create destination link 
+    if (this.state.itineraryId !== '') {
+      // if itinerary is avail
+      destinationLink = `/destination_details?d=${event.destination}&i=${this.state.itineraryId}`;
+    } else {
+      // if no itinerary is avail
+      destinationLink = `/destination_details?d=${event.destination}`;
+    }
 
     return (
 
-      <div className="container-fluid container-height">
+      <div className="container-fluid container-height" >
         <div className="container">
           <div className="d-flex flex-row flex-wrap flex-fill justify-content-around mt-3">
             <div className="flex-column flex-fill flex-shrink-1 mb-4">
               <div className="p-2">
                 <h4 className='text-muted'>
-                  <Link to={`/destination_details?d=${event.destination}`}>{event.destination_name}</Link>
+                  <Link to={destinationLink}>{event.destination_name}</Link>
                   {' '} >> {event.name}</h4>
                 <div className="mb-3 details_text">RATING: *****</div>
                 <div className="details_text details_label">WHEN:</div>
@@ -221,7 +186,11 @@ class Event extends React.Component {
             </div>
           </div>
         </div>
-      </div>
+
+        {this.state.events_onClick && this.state.nextURL !== '' &&
+          <Redirect to={this.state.nextURL} />
+        }
+      </div >
     )
   }
 }

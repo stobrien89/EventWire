@@ -18,13 +18,19 @@ class NavBar extends React.Component {
                                 <Link className="nav-link" to="/destination">DESTINATIONS</Link>
                             </li>
                             <li className="nav-item text-primary">
-                                {this.props.currentUser.email ? <a className="nav-link" onClick={this.props.handleLogout}>LOG OUT</a> : <Link className="nav-link" to="/login">LOG IN</Link>}
+                                {/* {this.props.currentUser.email ?  */}
+                                {isUserLoggedIn() ?
+                                    <a className="nav-link" onClick={this.props.handleLogout}>LOG OUT</a> :
+                                    <Link className="nav-link" to="/login">LOG IN</Link>}
                             </li>
+                            {isUserLoggedIn() &&
+                                <li className="nav-item text-primary">
+                                    <Link className="nav-link" to="/itinerary">ITINERARY</Link>
+                                </li>}
                             <li className="nav-item text-primary">
-                                <Link className="nav-link" to="/itinerary">ITINERARY</Link>
-                            </li>
-                            <li className="nav-item text-primary">
-                                {this.props.currentUser.email ? <Link className="nav-link" to="/profile">PROFILE</Link> : <Link className="nav-link" to="/signup">SIGN UP</Link>}
+                                {/* {this.props.currentUser.email ?  */}
+                                {isUserLoggedIn() ?
+                                    <Link className="nav-link" to="/profile">PROFILE</Link> : <Link className="nav-link" to="/signup">SIGN UP</Link>}
                             </li>
                         </ul>
                     </div>

@@ -6,16 +6,6 @@ class ListItem extends React.Component {
     itinerary: []
   }
 
-  FirstSentence = (str) => {
-    const regex = /^(.*?(?<!\b\w)[.?!])\s+[A-Z0-9]/;
-    let sentence = regex.exec(str);
-
-    if (sentence !== null) {
-      // keep it to 80 char
-      return sentence[1].substring(0, 80);
-    }
-  }
-
   updateItinerary = (id, url) => {
     fetch('/itinerary/' + id)
       .then((response) => response.json())
@@ -142,57 +132,24 @@ class List extends React.Component {
   };
 
   componentDidMount() {
-
-    this.isLoggedIn();
-    // this.updateIsLoggedIn(this.props.isLoggedIn()); // test to see if this will rerender component each time
     this.getData(this.state.baseURL);
   }
 
-  isLoggedIn = () => {
-    // console.log(localStorage.token);
-    if (localStorage.getItem('token')) {
-      this.setState({ isLoggedIn: true })
-      return true;
-    }
-    return false;
-  }
-
-  // updateBaseURL = async (base, url) => {
-  //   // console.log(base);
-  //   this.setState({ listItems: [], listName: base, baseURL: url }, () => {
-
-  //     // console.log(this.state.baseURL);
-  //     this.getData(this.state.baseURL);
-
-  //     // window.history.pushState('', 'Event Wire - Events', '/event');
-  //   });
-  // }
-
-  parseItineraryID = (searchURL) => {
-    const index = searchURL.indexOf("&i=");
-    if (index > -1) {
-      const itineraryId = searchURL.substring(index + 3);
-      // console.log(itineraryId);
-      return itineraryId;
-    }
-    return '';
-  }
-
   getData = (url) => {
-    // console.log('url', url);
+
+    // const loggedIn = localStorage.getItem('token') ? true : false;
+    const loggedIn = isUserLoggedIn();
+
     const query = this.props.location.search !== '/events' && this.props.location.search !== '/destinations'
       ? this.props.location.search
       : '';
-    // console.log('query', query);
+
     const searchURL = url + query;
-    // console.log('searchURL', searchURL);
-    // console.log('search', this.props.location.search);
-    // console.log('pathname', this.props.location.pathname);
-    // console.log('itineraryId', this.parseItineraryID(searchURL));
+
     fetch(searchURL)
       .then((response) => response.json())
       .then((listItems) => this.setState({
-        listItems: listItems, itineraryId: this.parseItineraryID(searchURL)
+        listItems: listItems, itineraryId: parseItineraryID(searchURL), isLoggedIn: loggedIn
       }))
       .catch((error) => console.log(error));
   }
@@ -218,7 +175,6 @@ class List extends React.Component {
             {this.state.listItems.length > 0 &&
               this.state.listItems.map((item, index) => {
                 return <ListItem item={item} key={index} listName={listName} getData={this.getData}
-                  // updateBaseURL={this.updateBaseURL} 
                   isLoggedIn={this.state.isLoggedIn} itineraryId={this.state.itineraryId} />
               })
             }
