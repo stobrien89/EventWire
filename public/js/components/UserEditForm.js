@@ -81,7 +81,7 @@ class UserEditForm extends React.Component {
         const { currentUser } = this.props;
 
         return (
-        <div className="container-fluid container-height">
+        <div className="container-fluid container-height user-edit-form">
             <div className="container">
                 <div className="row justify-content-center">
                     <div className="col-md-8">

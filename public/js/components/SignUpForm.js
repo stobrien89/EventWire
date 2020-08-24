@@ -92,7 +92,7 @@ class SignUpForm extends React.Component {
   
   render () {
       return (
-        <div className="container-fluid container-height">
+        <div className="container-fluid container-height signup-form">
             <div className="container">
                 <div className="row justify-content-center">
                     <div className="col-md-8">
@@ -246,7 +246,7 @@ class SignUpForm extends React.Component {
                                         <div className="cols-sm-10">
                                             <div className="input-group">
                                                 <span className="input-group-addon"><i className="fa fa-image fa-lg" aria-hidden="true"></i>&nbsp;&nbsp;</span>
-                                                <input type="text" className="form-control" value={this.state.image} name="image" placeholder="Enter a link to an image" onChange={this.handleInput} />
+                                                <input type="text" className="form-control" value={this.state.image} name="image" placeholder="Enter a link to your profile picture" onChange={this.handleInput} />
                                             </div>
                                         </div>
                                     </div>
