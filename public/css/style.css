@@ -84,7 +84,7 @@ a {
 
 .details_text {
   font-size: 1em;
-  line-height: 1.2em;
+  line-height: 1.3em;
 }
 
 .details_text i {
@@ -94,13 +94,14 @@ a {
   font-weight: bold;
 }
 
-.details_description {
+/* .details_description {
   width: 34em;
-}
+} */
 
 .details_image {
   height: 225px;
-  width: 80%;
+  width: 75%;
+  min-width: 350px;
   max-width: 500px;
 }
 
@@ -120,6 +121,7 @@ a {
 Link,
 a {
   color: var(--primary-color);
+  font-size: 1em;
 }
 
 Link:hover,
@@ -128,6 +130,7 @@ a:hover {
 }
 
 .expedia {
+  display: block;
   width: 300px;
   height: 550px;
 }
