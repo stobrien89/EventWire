@@ -98,12 +98,12 @@ class Event extends React.Component {
 
       <div className="container-fluid container-height" >
         <div className="container">
-          <div className="d-flex flex-row flex-wrap flex-fill justify-content-around mt-3">
-            <div className="flex-column flex-fill flex-shrink-1 mb-4">
+          <div className="row">
+            <div className="col-12 col-md-8 mb-4 mt-4">
               <div className="p-2">
                 <h4 className='text-muted'>
                   <Link to={destinationLink}>{event.destination_name}</Link>
-                  {' '} >> {event.name}</h4>
+                  {' '} &gt;&gt; {event.name}</h4>
                 <div className="mb-3 details_text">RATING: *****</div>
                 <div className="details_text details_label">WHEN:</div>
                 <div className="details_text">{event.start_date} - {event.end_date}</div>
@@ -126,9 +126,13 @@ class Event extends React.Component {
                 <div className="p-2 "><span className="details_label">PRICE PER PERSON</span> ${event.price_per_person}</div>
                 {/* <button className="btn-secondary ml-auto">ADD TO ITINERARY</button> */}
 
+
+
+              </div>
+              <div className="d-flex flex-row event_header">
                 {/* WHILE VIEWING AN EVENT AND USER NOT LOGGED IN, SEND USER TO LOGIN PAGE */}
                 {!this.state.isLoggedIn &&
-                  <Link to='/login' class="ml-auto btn btn-md btn-outline-primary">
+                  <Link to='/login' class=" btn btn-md btn-primary">
                     Login to Add
                   </Link>
                 }
@@ -138,7 +142,7 @@ class Event extends React.Component {
                 {this.state.isLoggedIn && this.state.itineraryId !== '' &&
                   <button
                     type="button"
-                    class="ml-auto btn btn-md btn-outline-primary"
+                    class="btn btn-md btn-primary"
                     onClick={() => { this.handleClick(`/itinerary_view?i=${this.state.itineraryId}`) }}
                   >
                     Add to Itinerary
@@ -149,11 +153,10 @@ class Event extends React.Component {
                 {this.state.isLoggedIn && this.state.itineraryId === '' &&
                   <Redirect to='/itinerary' />
                 }
-
               </div>
             </div>
 
-            <div className="d-flex flex-column flex-grow-1 ml-auto mt-2">
+            <div className="col-12 col-md-4 mt-4">
               <div className="flex-fill"><img className="details_image" src={event.image_url} alt={event.name} /></div>
 
               {this.state.contact &&
