@@ -107,7 +107,7 @@ router.post("/login", (req, res) => {
             id: user.id,
             exp: "1m",
           };
-          console.log(payload);
+          //   console.log(payload);
           currentUser = user;
           var token = jwt.encode(payload, config.jwtSecret);
           res.json({
