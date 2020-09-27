@@ -178,15 +178,15 @@ h1 {
 /* User form styling */
 
 .signup-form {
-  margin-top: 6%;
+  margin-top: 10%;
 }
 
- .login-form {
+.login-form {
   margin-top: 12%;
 }
 
 .user-edit-form {
-  margin-top: 9%;
+  margin-top: 10%;
 }
 /* End user form styling */
 
